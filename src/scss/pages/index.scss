@@ -1,0 +1,24 @@
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  color: white;
+  span {
+    color: red;
+  }
+}
+
+.card-section {
+  display: flex;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .card-section {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}

@@ -15,9 +15,11 @@
     "astro": "^4.13.1",
     "scss": "^0.2.4",
     "svelte": "^4.2.18",
+    "svelte-icons": "^2.1.0",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@iconify/svelte": "^4.0.2",
     "sass": "^1.77.8"
   }
 }

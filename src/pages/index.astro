@@ -2,17 +2,20 @@
 import "../scss/pages/index.scss";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Button from "../components/Button.svelte";
+import Header from "../components/Header.astro";
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="container">
 		
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<Header title="WE DEVELOP to" subtitle="MAXIMIZE"/>
+
 		<div class="card-section">
 			<Card title="Example Title" href="#" body="lorem description of card body whatever you want you can add here"/>
 			<Card title="Example Title" href="#" body="lorem description of card body whatever you want you can add here"/>
 		</div>
-		
+		<Button title="click me"/>
 		
 	</main>
 </Layout>

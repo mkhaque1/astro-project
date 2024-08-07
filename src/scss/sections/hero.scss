@@ -1,0 +1,23 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+}
+.leftContent {
+  gap: 10px;
+  img {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  p {
+    color: #f4f5f6;
+    width: 100%;
+    max-width: 400px;
+  }
+}

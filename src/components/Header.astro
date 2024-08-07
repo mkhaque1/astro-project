@@ -1,17 +1,21 @@
 ---
-import "../scss/components/header.scss";
-
-interface Props {
-	title: string;
-    subtitle: string;
-	
-}
-
-const { title, subtitle } = Astro.props;
+import Button from './Button.svelte';
+import "../scss/components/header.scss"
 ---
 
-<h1 class="title">{title} <br/><span>{subtitle}</span></h1>
-
-<style>
-    
-</style>
+<nav>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="/PyoNet-Final-LOGOai 1.png" alt="logo"></a>
+        </div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/Project">Projects</a>
+            <a href="/Service">Services</a>
+        </div>
+        <div>
+            <Button title="Learn More"/>
+        </div>
+    </div>
+</nav>

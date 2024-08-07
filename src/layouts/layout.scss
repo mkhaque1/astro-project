@@ -1,5 +1,5 @@
 :root {
-  --accent: 136, 58, 234;
+  --accent: 20, 95, 208, 0.5;
   --accent-light: 224, 204, 250;
   --accent-dark: 49, 10, 101;
   --accent-gradient: linear-gradient(
@@ -20,6 +20,10 @@ html {
   margin: 0 auto;
 }
 
+.btn-div {
+  display: flex;
+  justify-content: center;
+}
 /* button */
 .button {
   color: #fff;
@@ -43,4 +47,8 @@ html {
   &:hover {
     background: #032557;
   }
+}
+
+a {
+  text-decoration: none;
 }

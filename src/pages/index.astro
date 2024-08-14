@@ -5,8 +5,9 @@ import Button from "../components/Button.svelte";
 import Title from "../components/Title.astro";
 import Header from "../components/Header.astro";
 import Sections from "../layouts/Sections.astro";
-import "../scss/sections/hero.scss";
 import Tags from "../components/Tags.svelte";
+import Grid from "../components/Grid.astro";
+import Hero from "../sections/Hero.astro";
 
 ---
 
@@ -14,17 +15,7 @@ import Tags from "../components/Tags.svelte";
 	<main class="container">
 		<Header />
 		<Sections>
-			<div class="hero">
-				<div class="leftContent">
-				<Title title="WE DEVELOP to" subtitle="MAXIMIZE"/>
-				<img src="/abstract-technology-hologram-sphere-sci-fi-neon-vector-30224600 1.png" alt="tech">
-				<span class="blur"></span>
-			</div>
-			<div class="rightContent">
-				<p>We are constantly rethinking the future by creating the next generation of products, brands and services from a hybrid perspective. </p>
-				<Title title="YOUR BRAND" subtitle="to GROWTH"/>
-			</div>
-			</div>
+			<Hero/>
 		</Sections>
 		<div class="btn-div">
 			<Button title="click me"/>
@@ -34,8 +25,9 @@ import Tags from "../components/Tags.svelte";
 		
 		<Sections>
 			<Title title="Our Experience" subtitle="& Expertise "/>
+			<Grid />
 		</Sections>
-		
+		<Title title="The best" subtitle="We Do "/>
 	</main>
 </Layout>
 

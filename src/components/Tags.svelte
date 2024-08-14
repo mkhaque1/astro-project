@@ -1,6 +1,5 @@
 <script lang="ts">
     import "../scss/components/Tags.scss";
-  import { string } from 'astro/zod';
 
     let service = [ "web design", "web development", "App deevelopment" , "UI / UX", "Backend Development"]
    

@@ -3,13 +3,10 @@
   justify-content: center;
   flex-wrap: nowrap;
   gap: 20px;
-  overflow: hidden;
-  overflow-x: scroll;
-  margin: 50px;
 
   h2 {
     color: #eee;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 300;
     text-transform: uppercase;
     animation-name: moving 3s;

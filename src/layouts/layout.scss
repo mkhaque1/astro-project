@@ -2,6 +2,7 @@
   --accent: 20, 95, 208, 0.5;
   --accent-light: 224, 204, 250;
   --accent-dark: 49, 10, 101;
+  --accent-blue: 306FEA;
   --accent-gradient: linear-gradient(
     45deg,
     rgb(var(--accent)),
@@ -28,18 +29,14 @@ html {
 .button {
   color: #fff;
   font-size: 16px;
-  font-style: normal;
   font-weight: 300;
-  line-height: normal;
   padding: 12px 25px;
   display: flex;
   gap: 5px;
+  background-color: rgb(27, 100, 184);
+  border-radius: 10px;
   text-transform: uppercase;
-  align-items: center;
-  align-content: center;
   cursor: pointer;
-  border-radius: 100px;
-  background: linear-gradient(100deg, #2aa6cd 48.38%, #032557 94.2%);
   transition: all 0.3s ease;
   span {
     margin-left: 5px;
@@ -51,4 +48,7 @@ html {
 
 a {
   text-decoration: none;
+}
+.text {
+  color: #fff;
 }

@@ -1,6 +1,7 @@
 .hero {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .leftContent {
   gap: 10px;
@@ -20,4 +21,12 @@
     width: 100%;
     max-width: 400px;
   }
+}
+.blur {
+  width: 244px;
+  height: 244px;
+  background-color: #306fea;
+  filter: blur(200px);
+  position: absolute;
+  right: 0;
 }

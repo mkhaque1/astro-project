@@ -7,6 +7,8 @@ import Title from "../components/Title.astro";
 import Header from "../components/Header.astro";
 import Sections from "../layouts/Sections.astro";
 import "../scss/sections/hero.scss";
+import Tags from "../components/Tags.svelte";
+
 ---
 
 <Layout title="Welcome to Astro.">
@@ -17,6 +19,7 @@ import "../scss/sections/hero.scss";
 				<div class="leftContent">
 				<Title title="WE DEVELOP to" subtitle="MAXIMIZE"/>
 				<img src="/abstract-technology-hologram-sphere-sci-fi-neon-vector-30224600 1.png" alt="tech">
+				<span class="blur"></span>
 			</div>
 			<div class="rightContent">
 				<p>We are constantly rethinking the future by creating the next generation of products, brands and services from a hybrid perspective. </p>
@@ -28,11 +31,12 @@ import "../scss/sections/hero.scss";
 			<Button title="click me"/>
 		</div>
 		
-		<div class="card-section">
-			<Card title="Example Title" href="#" body="lorem description of card body whatever you want you can add here"/>
-			<Card title="Example Title" href="#" body="lorem description of card body whatever you want you can add here"/>
-		</div>
+
+		<Tags/>
 		
+		<Sections>
+			<Title title="Our Experience" subtitle="& Expertise "/>
+		</Sections>
 		
 	</main>
 </Layout>

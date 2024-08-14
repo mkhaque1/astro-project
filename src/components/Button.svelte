@@ -5,12 +5,11 @@
     export let title;
 </script>
 
-<button class="button" >{title}
-    <div class="icon"><FaLongArrowAltRight/></div>
+<button class="button" >{title}<span class="icon"><FaLongArrowAltRight/></span>
 </button>
 
 <style>
-    
+
     .icon{
     width: 18px;
     display: flex;

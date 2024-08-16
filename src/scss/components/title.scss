@@ -15,3 +15,12 @@
     line-height: normal;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 40px;
+    span {
+      font-size: 48px;
+    }
+  }
+}

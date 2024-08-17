@@ -1,29 +1,25 @@
 ---
 import "../scss/pages/index.scss";
-import Layout from '../layouts/Layout.astro';
-import Button from "../components/Button.svelte";
+import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import Header from "../components/Header.astro";
 import Sections from "../layouts/Sections.astro";
 import Tags from "../components/Tags.svelte";
 import Grid from "../components/Grid.astro";
 import Hero from "../sections/Hero.astro";
-
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="container">
-		<Header />
-		<Sections>
-			<Hero/>
-		</Sections>
-		<Tags/>
-		<Sections>
-			<Title title="Our Experience" subtitle="& Expertise "/>
-			<Grid />
-		</Sections>
-		<Title title="The best" subtitle="We Do "/>
-	</main>
+  <main class="container">
+    <Header />
+    <Sections>
+      <Hero />
+    </Sections>
+    <Tags />
+    <Sections>
+      <Title title="Our Experience" subtitle="& Expertise " />
+      <Grid />
+    </Sections>
+    <Title title="The best" subtitle="We Do " />
+  </main>
 </Layout>
-
-

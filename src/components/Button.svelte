@@ -9,11 +9,9 @@
 </button>
 
 <style>
-
     .icon{
     width: 18px;
     display: flex;
     rotate: -40deg;
     }
-
 </style>

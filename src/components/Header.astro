@@ -1,50 +1,54 @@
 ---
-import Button from './Button.svelte';
+import Button from "./Button.svelte";
 import "../scss/components/header.scss";
 ---
 
 <nav>
-    <div class="navbar">
-        <div class="logo">
-            <a href="/"><img src="/PyoNet-Final-LOGOai 1.png" alt="logo"></a>
-        </div>
-        <div class="menu">
-            <ul class="header-ul">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/service">Service</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </div>
-        <button class="burger"><span></span></button>
-        <div class="btn">
-            <Button title="Learn More"/>
-        </div>
+  <div class="navbar">
+    <div class="logo">
+      <a href="/"><img src="/PyoNet-Final-LOGOai 1.png" alt="logo" /></a>
     </div>
+    <div class="menu">
+      <ul class="header-ul">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/service">Service</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <button class="burger"><span></span></button>
+    <div class="btn">
+      <Button title="Learn More" />
+    </div>
+  </div>
 </nav>
 
 <script>
-    const headerUl = document.querySelector('.header-ul') as HTMLUListElement | null;
-    const links = document.querySelectorAll('.header-ul li a') as NodeListOf<HTMLAnchorElement>;
-    const btn = document.querySelector('.burger') as HTMLButtonElement | null;
+  const headerUl = document.querySelector(
+    ".header-ul"
+  ) as HTMLUListElement | null;
+  const links = document.querySelectorAll(
+    ".header-ul li a"
+  ) as NodeListOf<HTMLAnchorElement>;
+  const btn = document.querySelector(".burger") as HTMLButtonElement | null;
 
-    if (headerUl) {
-        headerUl.addEventListener('click', event => { 
-            const clickedElement = event.target as HTMLElement;
-            
-            if (clickedElement.tagName === 'A') {
-                links.forEach(link => {
-                    link.classList.remove('active');
-                });
-                
-                clickedElement.classList.add('active');
-            }
-        });
-    }
+  if (headerUl) {
+    headerUl.addEventListener("click", (event) => {
+      const clickedElement = event.target as HTMLElement;
 
-    if (btn) {
-        btn.addEventListener('click', () => {
-            btn.classList.toggle('show');
+      if (clickedElement.tagName === "A") {
+        links.forEach((link) => {
+          link.classList.remove("active");
         });
-    }
+
+        clickedElement.classList.add("active");
+      }
+    });
+  }
+
+  if (btn) {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("show");
+    });
+  }
 </script>

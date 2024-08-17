@@ -18,7 +18,8 @@
   gap: 10px;
   p {
     color: #f4f5f6;
-    width: 100%;
+    font-weight: 300;
+    letter-spacing: 0.2em;
     max-width: 400px;
   }
 }
@@ -34,5 +35,9 @@
 @media only screen and (max-width: 600px) {
   .hero {
     flex-wrap: wrap;
+  }
+  .rightContent p {
+    font-size: 16px;
+    font-weight: 300;
   }
 }

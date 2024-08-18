@@ -17,11 +17,25 @@ import "../scss/components/header.scss";
       </ul>
     </div>
     <button class="burger"><span></span></button>
+
     <div class="btn">
       <Button title="Learn More" />
     </div>
   </div>
 </nav>
+
+<!-- Mobile Navigation -->
+<div class="mbl-nav">
+  <ul class="mbl-header">
+    <li><a href="/" class="active">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/service">Service</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</div>
+
+<!-- Overlay div -->
+<div id="overlay" class="overlay"></div>
 
 <script>
   const headerUl = document.querySelector(
@@ -31,6 +45,8 @@ import "../scss/components/header.scss";
     ".header-ul li a"
   ) as NodeListOf<HTMLAnchorElement>;
   const btn = document.querySelector(".burger") as HTMLButtonElement | null;
+  const overlay = document.querySelector("#overlay") as HTMLDivElement | null;
+  const mblNav = document.querySelector(".mbl-nav") as HTMLDivElement | null;
 
   if (headerUl) {
     headerUl.addEventListener("click", (event) => {
@@ -46,9 +62,18 @@ import "../scss/components/header.scss";
     });
   }
 
-  if (btn) {
+  if (btn && overlay && mblNav) {
     btn.addEventListener("click", () => {
       btn.classList.toggle("show");
+      overlay.classList.toggle("active");
+      mblNav.classList.toggle("active"); // Toggle mobile navigation visibility
+    });
+
+    // Close overlay and mobile navigation when clicking anywhere on the overlay
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("active");
+      btn.classList.remove("show");
+      mblNav.classList.remove("active"); // Hide mobile navigation
     });
   }
 </script>

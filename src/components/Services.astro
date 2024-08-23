@@ -1,0 +1,26 @@
+---
+import Link from "./Link.svelte";
+import FaLocationArrow from "svelte-icons/fa/FaLocationArrow.svelte";
+import "../scss/components/service.scss";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="service__section">
+  <div class="content">
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <Link href="#" text="View details" />
+  </div>
+  <div class="images">
+    <img style="width: 200px;" src="/images/po-35 1 (1).png" alt="images" />
+  </div>
+  <div class="icon">
+    <FaLocationArrow />
+  </div>
+</div>

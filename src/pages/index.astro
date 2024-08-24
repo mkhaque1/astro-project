@@ -45,10 +45,16 @@ let services = [
       <Grid />
     </Sections>
     <Title title="The best" subtitle="We Do " />
-    {
-      services.map((service) => (
-        <Services title={service.title} description={service.description} />
-      ))
-    }
+    <Sections>
+      {
+        services.map((service) => (
+          <Services
+            href="#"
+            title={service.title}
+            description={service.description}
+          />
+        ))
+      }
+    </Sections>
   </main>
 </Layout>

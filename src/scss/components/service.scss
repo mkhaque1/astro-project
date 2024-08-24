@@ -1,25 +1,86 @@
 .service__section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  border-top: 0.5px solid rgba(240, 248, 255, 0.337);
   border-bottom: 0.5px solid rgba(240, 248, 255, 0.337);
   padding: 10px 0px;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
+  overflow: hidden; // Ensures hidden content does not spill out
+  transition: max-height 0.5s ease; // Smooth transition for height
+  align-items: baseline;
+  // Set initial collapsed state
+  max-height: 80px; // Adjust to the height of the non-hovered state
+
+  &:hover {
+    max-height: 400px;
+    align-items: center; // Adjust to the full expanded height
+  }
+
   .content {
     flex-basis: 50%;
+    h2 {
+      color: aliceblue;
+      font-size: 35px;
+      font-weight: 700;
+    }
+
+    p,
+    a {
+      font-weight: 300;
+      color: aliceblue;
+      opacity: 0; // Initially invisible
+      transform: translateY(10px); // Slightly moved down
+      transition: opacity 0.5s ease, transform 0.5s ease; // Smooth transition for opacity and transform
+    }
+
+    a {
+      color: antiquewhite;
+    }
   }
-  .content h2 {
-    color: aliceblue;
-    font-size: 35px;
-    font-weight: 700;
+
+  .images {
+    display: none; // Initially hidden
+    opacity: 0; // Initially invisible
+    transform: translateY(10px); // Slightly moved down
+    transition: opacity 0.5s ease, transform 0.5s ease; // Smooth transition for opacity and transform
+
+    img {
+      width: 200px;
+    }
   }
-  .content p {
-    font-weight: 300;
-    color: aliceblue;
+
+  &:hover .content p,
+  &:hover .content a,
+  &:hover .images {
+    display: block; // Make the hidden elements visible
+    opacity: 1; // Fully visible when hovered
+    transform: translateY(0); // Move back to original position
   }
+  &:hover .icon,
+  &:hover .content h2 {
+    color: #2aa6cd;
+  }
+
   .icon {
     width: 40px;
     color: aliceblue;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .service__section {
+    max-height: 50px;
+    align-items: baseline;
+    .content {
+      flex-basis: 60%;
+      h2 {
+        font-size: 22px;
+      }
+    }
+    img {
+      max-width: 120px;
+    }
+    .icon {
+      width: 20px;
+    }
   }
 }

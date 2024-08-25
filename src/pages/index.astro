@@ -1,5 +1,6 @@
 ---
 import "../scss/pages/index.scss";
+import "../scss/sections/process.scss";
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import Header from "../components/Header.astro";
@@ -8,6 +9,8 @@ import Tags from "../components/Tags.svelte";
 import Grid from "../components/Grid.astro";
 import Hero from "../sections/Hero.astro";
 import Services from "../components/Services.astro";
+import Button from "../components/Button.svelte";
+import Card from "../components/Card.astro";
 
 let services = [
   {
@@ -29,6 +32,21 @@ let services = [
     title: "UI/UX Design",
     description:
       "Our UI/UX designs are user-centered and crafted to enhance user experience.",
+  },
+];
+
+let cards = [
+  {
+    title: "Research & Wireframing",
+    body: "We are constantly rethinking the future by creating the next generation of products, brands and services from a hybrid perspective.",
+  },
+  {
+    title: "Design & THinking",
+    body: "We are constantly rethinking the future by creating the next generation of products, brands and services from a hybrid perspective.",
+  },
+  {
+    title: "Develop & Launch",
+    body: "We are constantly rethinking the future by creating the next generation of products, brands and services from a hybrid perspective.",
   },
 ];
 ---
@@ -55,6 +73,20 @@ let services = [
           />
         ))
       }
+    </Sections>
+    <Sections>
+      <div class="process__section">
+        <Title title="Our Solution" subtitle="Process" />
+        <Button title="Learn More" />
+      </div>
+
+      <div class="process__card">
+        {
+          cards.map((card) => (
+            <Card href="#" title={card.title} body={card.body} />
+          ))
+        }
+      </div>
     </Sections>
   </main>
 </Layout>

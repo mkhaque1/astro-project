@@ -1,13 +1,13 @@
 :root {
-  --accent: 20, 95, 208, 0.5;
-  --accent-light: 224, 204, 250;
+  --accent: 222, 225, 208, 0.5;
+  --accent-light: 50, 220, 255;
   --accent-dark: 49, 10, 101;
   --accent-blue: 306FEA;
   --accent-gradient: linear-gradient(
     45deg,
     rgb(var(--accent)),
     rgb(var(--accent-light)) 30%,
-    white 60%
+    rgb(0, 175, 224) 30%
   );
 }
 
@@ -33,17 +33,17 @@ html {
   padding: 12px 25px;
   display: flex;
   gap: 5px;
-  background-color: rgb(27, 100, 184);
+  background-color: transparent;
   border: none;
-  border-radius: 10px;
-  text-transform: uppercase;
+  border-radius: 100px;
+  text-transform: capitalize;
   cursor: pointer;
   transition: all 0.3s ease;
   span {
     margin-left: 5px;
   }
   &:hover {
-    background: #032557;
+    background: linear-gradient(90deg, #1f99d6 0%, rgba(20, 95, 208, 0.5) 100%);
 
     .icon {
       rotate: 0deg;

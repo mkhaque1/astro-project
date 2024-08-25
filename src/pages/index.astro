@@ -64,6 +64,7 @@ let cards = [
     </Sections>
     <Title title="The best" subtitle="We Do " />
     <Sections>
+      <div class="blur"></div>
       {
         services.map((service) => (
           <Services
@@ -81,11 +82,15 @@ let cards = [
       </div>
 
       <div class="process__card">
+        <div class="box__image">
+          <img src="/images/pngegg (100) 1 (1).png" width="450" alt="" />
+        </div>
         {
           cards.map((card) => (
             <Card href="#" title={card.title} body={card.body} />
           ))
         }
+        <div class="blur"></div>
       </div>
     </Sections>
   </main>

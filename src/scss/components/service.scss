@@ -8,7 +8,7 @@
   transition: max-height 0.5s ease; // Smooth transition for height
   align-items: baseline;
   // Set initial collapsed state
-  max-height: 80px; // Adjust to the height of the non-hovered state
+  max-height: 50px; // Adjust to the height of the non-hovered state
 
   &:hover {
     max-height: 400px;
@@ -57,12 +57,12 @@
   }
   &:hover .icon,
   &:hover .content h2 {
-    color: #2aa6cd;
+    color: rgb(var(--accent-light));
   }
 
   .icon {
-    width: 40px;
-    color: aliceblue;
+    width: 30px;
+    color: rgb(var(--accent-light));
   }
 }
 

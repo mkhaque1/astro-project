@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
 }
 
 .process__card {
@@ -10,4 +9,11 @@
   gap: 20px;
   padding: 40px 0px;
   position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .process__section,
+  .process__card {
+    flex-wrap: wrap;
+  }
 }

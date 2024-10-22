@@ -29,7 +29,9 @@
       color: aliceblue;
       opacity: 0; // Initially invisible
       transform: translateY(10px); // Slightly moved down
-      transition: opacity 0.5s ease, transform 0.5s ease; // Smooth transition for opacity and transform
+      transition:
+        opacity 0.5s ease,
+        transform 0.5s ease; // Smooth transition for opacity and transform
     }
 
     a {
@@ -41,7 +43,9 @@
     display: none; // Initially hidden
     opacity: 0; // Initially invisible
     transform: translateY(10px); // Slightly moved down
-    transition: opacity 0.5s ease, transform 0.5s ease; // Smooth transition for opacity and transform
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease; // Smooth transition for opacity and transform
 
     img {
       width: 200px;

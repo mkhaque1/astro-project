@@ -1,70 +1,176 @@
+// Font family declaration (uncomment to use)
+// font-family: 'M PLUS 2 Variable', sans-serif;
+
 // General container styling
-.container {
+.projects * {
+  box-sizing: border-box;
+}
+.projects.container {
+  $normal-gap: 24px; // Consider using this variable if you have spacing needs
   display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
+  flex-wrap: nowrap;
   justify-content: center;
-}
+  gap: $normal-gap;
 
-// Grid container styling
-.grid {
-  display: grid;
-  height: 100%;
-  width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 16px;
-  background-color: #eee;
-  padding: 8px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);
-}
+  > div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: $normal-gap;
+  }
 
-// Shared grid item styles
-.grid-item {
-  font-family: 'M PLUS 2 Variable', sans-serif;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+  > div:nth-child(2) {
+  }
 
-// Individual grid items styling
-.salmon {
-  grid-column: span 3;
-  grid-row: span 1;
-  background-color: rgba(255, 182, 193, 0.5);
-}
+  .info {
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #1d1d3b;
+    padding: $normal-gap; // Example of using the variable
+    width: 100%; // Default width, adjust as needed
+    background: radial-gradient(
+        217.75% 144.07% at 217.75% 107.58%,
+        rgba(127, 139, 210, 0.3) 0%,
+        rgba(89, 106, 197, 0) 100%
+      ),
+      #191934;
+    // background-blend-mode: overlay, normal, normal;
+  }
 
-.broccoli {
-  grid-column: span 1;
-  grid-row: span 1;
-  background-color: rgba(173, 255, 47, 0.5);
-}
+  .info.first {
+    width: 262px;
+    height: 396px;
+    background-image:url(/public/images/c1.png)
+  }
 
-.tamago {
-  grid-column: span 1;
-  grid-row: span 4;
-  background-color: rgba(255, 255, 224, 0.5);
-}
+  .info.second {
+    width: 262px;
+    height: 219px;
+  }
 
-.pork {
-  grid-column: span 2;
-  grid-row: span 2;
-  background-color: rgba(210, 180, 140, 0.5);
-}
+  .info.third {
+    width: 262px;
+    height: 165px;
+  }
 
-.edamame {
-  grid-column: span 1;
-  grid-row: span 2;
-  background-color: rgba(144, 238, 144, 0.5);
-}
+  > div:nth-child(2) {
+    position: relative;
+    .details.first {
+      display: flex;
+      margin-bottom: $normal-gap;
+      gap: $normal-gap;
+      > div:nth-child(1) {
+        width: 556px;
+        height: 396px;
+        border-radius: 24px;
+        position: relative;
+        /* bg */
 
-.tomato {
-  grid-column: span 3;
-  grid-row: span 2;
-  background-color: rgba(255, 160, 122, 0.5);
+        background: url(general_noise.png), url(download.png),
+          radial-gradient(
+            53.33% 74.69% at 50% 107.05%,
+            #bba5f4 0%,
+            #653ad8 100%
+          );
+        background-blend-mode: overlay, overlay, normal;
+      }
+      > div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        gap: $normal-gap;
+        min-width: 262px;
+        max-width: 262px;
+        > div:nth-child(1) {
+          width: 100%;
+          height: 157px;
+        }
+        > div:nth-child(2) {
+          width: 100%;
+          height: 211px;
+        }
+      }
+    }
+    .details.second {
+      display: flex;
+      gap: $normal-gap;
+      > div:nth-child(1) {
+        min-width: 264px;
+        max-width: 264px;
+        height: 412px;
+      }
+      > div:nth-child(2) {
+        width: 100%;
+        height: 412px;
+      }
+    }
+
+    .circle {
+      position: absolute;
+      z-index: 50;
+      width: 270px;
+      height: 270px;
+      left: calc(50% - 540px / 2);
+      top: calc(50% - 270px / 2);
+
+      background-image: url(/public/images/circle.png);
+      background-position: center;
+      background-size: contain;
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 100%;
+      box-shadow: 0px 0px 0px 24px #020915;
+      .edge {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+      }
+      .edge.first {
+        border-radius: 0 0 0 24px;
+        left: 107%;
+        top: 91px;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: -10px 7px 0px 4px #020915;
+      }
+      .edge.second {
+        border-radius: 0 0 24px 0;
+        right: 107%;
+        top: 91px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 10px 10px 0px 4px #020915;
+      }
+      .edge.third {
+        border-radius: 0 24px 0 0;
+        right: 108%;
+        top: 137px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 4px -5px 0px 4px #020915;
+      }
+      .edge.fourth {
+        border-radius: 0 24px 0 0;
+        right: 58%;
+        top: 287px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 4px -5px 0 4px #020915;
+      }
+      .edge.fifth {
+        border-radius: 24px 0 0 0;
+        left: 51%;
+        top: 292px;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: -4px -5px 0 4px #020915;
+      }
+      .edge.sixth {
+        border-radius: 24px 0 0 0;
+        left: 109%;
+        top: 138px;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: -4px -4px 0 4px #020915;
+      }
+    }
+  }
 }

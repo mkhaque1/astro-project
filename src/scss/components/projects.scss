@@ -6,21 +6,35 @@
 .projects * {
   box-sizing: border-box;
 }
+
 .projects.container {
+  position: relative;;
   $normal-gap: 24px; // Consider using this variable if you have spacing needs
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   gap: $normal-gap;
 
-  > div:nth-child(1) {
-    display: flex;
-    flex-direction: column;
-    gap: $normal-gap;
-  }
 
-  > div:nth-child(2) {
-  }
+.circle {
+      position: absolute;
+      z-index: 50;
+
+      width: 270px;
+      height: 270px;
+      left: calc(50% - 240px / 2);
+      top: calc(50% - 270px / 2);
+      background-image: url(/public/images/circle.png);
+      background-position: center;
+      background-size: cover;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 100%;
+      box-shadow: 0px 0px 0px 24px #020915;
+      animation: rotate 500s ease-in-out;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+    }
+
   .avatars {
     display: flex;
     width: fit-content;
@@ -29,6 +43,7 @@
     margin-top: 20px;
     padding: 0px;
     flex-direction: row;
+
     &__item {
       background-color: #596376;
       border: 2px solid #1f2532;
@@ -45,12 +60,15 @@
       transition: margin 0.1s ease-in-out;
       overflow: hidden;
       margin-left: -20px;
+
       &:first-child {
         z-index: 1;
       }
+
       &:nth-child(2) {
         z-index: 2;
       }
+
       &:nth-child(3) {
         z-index: 3;
       }
@@ -59,95 +77,298 @@
         width: 100%;
       }
     }
+
     &:hover {
       .avatars__item {
         margin-right: 10px;
       }
     }
   }
+
   .info {
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     background: #1d1d3b;
     padding: $normal-gap; // Example of using the variable
     width: 100%; // Default width, adjust as needed
-    background: radial-gradient(
-        217.75% 144.07% at 217.75% 107.58%,
+    background: radial-gradient(217.75% 144.07% at 217.75% 107.58%,
         rgba(127, 139, 210, 0.3) 0%,
-        rgba(89, 106, 197, 0) 100%
-      ),
+        rgba(89, 106, 197, 0) 100%),
       #191934;
     // background-blend-mode: overlay, normal, normal;
   }
 
-  .info.first {
-    width: 262px;
-    height: 396px;
-    background:
-      url(/public/images/general_noise.png),
-      radial-gradient(
-          217.75% 144.07% at 217.75% 107.58%,
-          rgba(127, 139, 210, 0.3) 0%,
-          rgba(89, 106, 197, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-      #191934;
-    background-blend-mode: overlay, normal, normal;
-    padding: 32px;
-    > h1 {
-      font-family: "Plus Jakarta Sans";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 36px;
-      line-height: 40px;
-      /* or 111% */
-      letter-spacing: -0.01em;
+  
+  
 
-      background: linear-gradient(123.11deg, #ffffff -2.63%, #aa9cfc 104.28%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
+  .details.first {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    display: flex;
+    margin-bottom: $normal-gap;
+    gap: $normal-gap;
+    .info.first {
+      width: 262px;
+      height: 396px;
+      background:
+        url(/public/images/general_noise.png),
+        radial-gradient(217.75% 144.07% at 217.75% 107.58%,
+          rgba(127, 139, 210, 0.3) 0%,
+          rgba(89, 106, 197, 0) 100%)
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+        ,
+        #191934;
+      background-blend-mode: overlay, normal, normal;
+      padding: 32px;
+  
+      >h1 {
+        font-family: "Plus Jakarta Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 40px;
+        /* or 111% */
+        letter-spacing: -0.01em;
+  
+        background: linear-gradient(123.11deg, #ffffff -2.63%, #aa9cfc 104.28%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+  
+      >div {
+        margin-top: 80px;
+  
+        h1 {
+          font-family: "Plus Jakarta Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 28px;
+          color: #e6e3ff;
+          margin: 0;
+        }
+  
+        p {
+          font-family: "Plus Jakarta Sans";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 24px;
+          leading-trim: both;
+          text-edge: cap;
+          color: #b2a1fd;
+          margin: 0;
+        }
+      }
     }
-    > div {
-      margin-top: 80px;
-      h1 {
+  
+    >div:nth-child(2) {
+      width: 100%;
+      height: 396px;
+      border-radius: 24px;
+      position: relative;
+      background: url(/public/images/general_noise.png),
+        url(/public/images/general_noise.png),
+        radial-gradient(53.33% 74.69% at 50% 107.05%,
+          #bba5f4 0%,
+          #653ad8 100%);
+      background-blend-mode: overlay, overlay, normal;
+
+      >div {
         font-family: "Plus Jakarta Sans";
         font-style: normal;
         font-weight: 700;
         font-size: 20px;
         line-height: 28px;
-        color: #e6e3ff;
-        margin: 0;
+        display: flex;
+        text-align: center;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
       }
-      p {
+
+      >h1 {
         font-family: "Plus Jakarta Sans";
         font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 24px;
-        leading-trim: both;
-        text-edge: cap;
-        color: #b2a1fd;
-        margin: 0;
+        font-weight: 600;
+        font-size: 62px;
+        line-height: 62px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #faf9ff;
+        border: 1px solid rgba(85, 42, 203, 0.5);
+        margin-top: 16px;
       }
     }
+
+    >div:nth-child(3) {
+      display: flex;
+      flex-direction: column;
+      gap: $normal-gap;
+      min-width: 262px;
+      max-width: 262px;
+
+      >div:nth-child(1) {
+        width: 100%;
+        height: 157px;
+        background:
+          url(/public/images/general_noise.png),
+          radial-gradient(110.31% 182.91% at -10.31% 113.92%,
+            rgba(127, 139, 210, 0.3) 0%,
+            rgba(89, 106, 197, 0) 100%) #191934;
+        background-blend-mode: overlay, normal, normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        $button-width: 132px;
+        $button-height: 72px;
+        $toggle-diameter: 56px;
+        $button-toggle-offset: calc(($button-height - $toggle-diameter) / 2);
+        $toggle-shadow-offset: 10px;
+        $toggle-wider: 3rem;
+        $color-purple: #653ad8;
+
+        .switch {
+          width: 132px;
+          height: 72px;
+          align-self: center;
+
+          input[type="checkbox"] {
+            display: none;
+
+            &:active+.slider::after {
+              width: $toggle-wider;
+            }
+
+            &:checked+.slider {
+              background-color: $color-purple;
+
+              &::after {
+                transform: translateX(calc($button-width - $toggle-diameter - $button-toggle-offset ));
+                box-shadow: calc($toggle-shadow-offset * -1) 0 calc($toggle-shadow-offset * 4) rgba(0, 0, 0, 0.1);
+              }
+
+              &:active+.slider::after {
+                transform: translateX(calc($button-width - $toggle-wider - $button-toggle-offset));
+              }
+            }
+          }
+        }
+
+        .slider {
+          display: inline-block;
+          width: $button-width;
+          height: $button-height;
+          background: rgba(0, 0, 0, 0.15);
+          border: 1px solid rgba(91, 75, 137, 0.45);
+          box-shadow: inset 0px 0px 23.608px rgba(0, 0, 0, 0.3);
+          border-radius: calc($button-height / 2);
+          position: relative;
+          transition: 0.3s all ease-in-out;
+
+          &::after {
+            content: "";
+            display: inline-block;
+            width: $toggle-diameter;
+            height: $toggle-diameter;
+            background: url(/public/images/checkbox_button.svg);
+            background-position: center;
+            background-size: cover;
+            background-size: 80px;
+            background-position-x: 25%;
+            border-radius: calc($toggle-diameter / 2);
+            position: absolute;
+            top: $button-toggle-offset;
+            transform: translateX($button-toggle-offset);
+            box-shadow: $toggle-shadow-offset 0 calc($toggle-shadow-offset * 4) rgba(0, 0, 0, 0.1);
+            transition: 0.3s all ease-in-out;
+          }
+        }
+      }
+
+      >div:nth-child(2) {
+        width: 100%;
+        height: 211px;
+        background:
+          url(/public/images/general_noise.png),
+          radial-gradient(141.22% 109.95% at -41.22% 109.95%,
+            rgba(127, 139, 210, 0.3) 0%,
+            rgba(89, 106, 197, 0) 100%) #191934;
+        background-blend-mode: overlay, normal, normal;
+        padding-top: 50px;
+
+        h1 {
+          font-family: "Plus Jakarta Sans";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 62px;
+          line-height: 56px;
+          leading-trim: both;
+          text-edge: cap;
+          text-align: center;
+          letter-spacing: -0.02em;
+          background: linear-gradient(90deg, #f5f1ff -5.56%, #6633ee 109.09%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          margin: 0;
+        }
+
+        p {
+          margin-top: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-family: "Plus Jakarta Sans";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          leading-trim: both;
+          text-edge: cap;
+          display: flex;
+          text-align: center;
+
+          color: #b2a1fd;
+
+          background: linear-gradient(90deg,
+              rgba(191, 167, 251, 0.1) 0%,
+              rgba(79, 43, 172, 0.2) 100%);
+        }
+      }
+    }
+
+
+    
   }
 
-  .info.second {
+  .details.second {
+    display: flex;
+    gap: $normal-gap;
+    >div:nth-child(1){
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      .info.second {
     width: 262px;
     height: 219px;
     background:
       url(/public/images/general_noise.png),
-      radial-gradient(
-          214.89% 255.91% at 214.89% -5.91%,
-          rgba(127, 139, 210, 0.3) 0%,
-          rgba(89, 106, 197, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+      radial-gradient(214.89% 255.91% at 214.89% -5.91%,
+        rgba(127, 139, 210, 0.3) 0%,
+        rgba(89, 106, 197, 0) 100%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+      ,
       #191934;
     background-blend-mode: overlay, normal, normal;
-    > h1 {
+
+    >h1 {
       margin: 0;
       font-family: "Plus Jakarta Sans";
       font-style: normal;
@@ -158,18 +379,17 @@
       text-edge: cap;
       text-align: center;
       letter-spacing: -0.02em;
-      background: linear-gradient(
-        101.7deg,
-        #ffb366 23.03%,
-        #e9766f 75.73%,
-        #c04350 130.68%
-      );
+      background: linear-gradient(101.7deg,
+          #ffb366 23.03%,
+          #e9766f 75.73%,
+          #c04350 130.68%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
     }
-    > p {
+
+    >p {
       margin: 0;
       font-family: "Plus Jakarta Sans";
       font-style: normal;
@@ -187,19 +407,19 @@
     height: 165px;
     background:
       url(/public/images/general_noise.png),
-      radial-gradient(
-          217.94% 348.17% at 213.36% -151.22%,
-          rgba(127, 139, 210, 0.3) 0%,
-          rgba(89, 106, 197, 0) 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+      radial-gradient(217.94% 348.17% at 213.36% -151.22%,
+        rgba(127, 139, 210, 0.3) 0%,
+        rgba(89, 106, 197, 0) 100%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+      ,
       #191934;
     background-blend-mode: overlay, normal, normal;
     order-radius: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    > div {
+
+    >div {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -230,11 +450,9 @@
         height: 56px;
 
         background: url(general_noise.png), url(download.png),
-          radial-gradient(
-            66.67% 103.95% at 50% -42.76%,
+          radial-gradient(66.67% 103.95% at 50% -42.76%,
             #bba5f4 0%,
-            #5f33d6 100%
-          ),
+            #5f33d6 100%),
           rgba(255, 255, 255, 0.05);
         background-blend-mode: overlay, overlay, normal, normal;
         border: 1px solid rgba(255, 255, 255, 0.15);
@@ -257,354 +475,94 @@
       }
     }
   }
+    }
+    >div:nth-child(2) {
+      min-width: 264px;
+      max-width: 264px;
+      height: 412px;
+      padding-top: 0;
+      background:
+        url(/public/images/general_noise.png),
+        radial-gradient(158.33% 101.7% at 104.55% -1.7%,
+          rgba(89, 106, 197, 0.3) 0%,
+          rgba(89, 106, 197, 0) 100%) #191934;
+      background-blend-mode: overlay, normal, normal;
+      border: 1px solid rgba(255, 255, 255, 0.05);
 
-  > div:nth-child(2) {
-    position: relative;
-    .details.first {
-      display: flex;
-      margin-bottom: $normal-gap;
-      gap: $normal-gap;
-      > div:nth-child(1) {
-        width: 556px;
-        height: 396px;
-        border-radius: 24px;
-        position: relative;
-        background: url(/public/images/general_noise.png),
-          url(/public/images/general_noise.png),
-          radial-gradient(
-            53.33% 74.69% at 50% 107.05%,
-            #bba5f4 0%,
-            #653ad8 100%
-          );
-        background-blend-mode: overlay, overlay, normal;
-        > div {
-          font-family: "Plus Jakarta Sans";
-          font-style: normal;
-          font-weight: 700;
-          font-size: 20px;
-          line-height: 28px;
-          display: flex;
-          text-align: center;
-          color: white;
-          justify-content: center;
-          align-items: center;
-          gap: 4px;
-        }
-        > h1 {
-          font-family: "Plus Jakarta Sans";
-          font-style: normal;
-          font-weight: 600;
-          font-size: 62px;
-          line-height: 62px;
-          text-align: center;
-          letter-spacing: -0.02em;
-          color: #faf9ff;
-          border: 1px solid rgba(85, 42, 203, 0.5);
-          margin-top: 16px;
-        }
+      >h1 {
+        font-family: "Plus Jakarta Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+        color: #e6e3ff;
+        margin: 8px 0 0 8px;
       }
-      > div:nth-child(2) {
+
+      >p {
+        font-family: "Plus Jakarta Sans";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        leading-trim: both;
+        text-edge: cap;
+        color: #b2a1fd;
+        margin: 8px 0 0 8px;
+      }
+    }
+
+    >div:nth-child(3) {
+      width: 100%;
+      height: 412px;
+      overflow: hidden;
+      background:
+        url(/public/images/general_noise.png),
+        radial-gradient(101.34% 136.69% at -1.34% -2.3%,
+          rgba(89, 106, 197, 0.3) 0%,
+          rgba(89, 106, 197, 0) 100%)
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+        ,
+        #191934;
+      background-blend-mode: overlay, normal, normal;
+
+      >div {
         display: flex;
-        flex-direction: column;
-        gap: $normal-gap;
-        min-width: 262px;
-        max-width: 262px;
-        > div:nth-child(1) {
-          width: 100%;
-          height: 157px;
-          background:
-            url(/public/images/general_noise.png),
-            radial-gradient(
-                110.31% 182.91% at -10.31% 113.92%,
-                rgba(127, 139, 210, 0.3) 0%,
-                rgba(89, 106, 197, 0) 100%
-              )
-              #191934;
-          background-blend-mode: overlay, normal, normal;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        justify-content: center;
 
-          $button-width: 132px;
-          $button-height: 72px;
-          $toggle-diameter: 56px;
-          $button-toggle-offset: calc(($button-height - $toggle-diameter) / 2);
-          $toggle-shadow-offset: 10px;
-          $toggle-wider: 3rem;
-          $color-purple: #653ad8;
-
-          .switch {
-            width: 132px;
-            height: 72px;
-            align-self: center;
-            input[type="checkbox"] {
-              display: none;
-              &:active + .slider::after {
-                width: $toggle-wider;
-              }
-
-              &:checked + .slider {
-                background-color: $color-purple;
-
-                &::after {
-                  transform: translateX(
-                    calc(
-                      $button-width - $toggle-diameter - $button-toggle-offset
-                    )
-                  );
-                  box-shadow: calc($toggle-shadow-offset * -1) 0
-                    calc($toggle-shadow-offset * 4) rgba(0, 0, 0, 0.1);
-                }
-
-                &:active + .slider::after {
-                  transform: translateX(
-                    calc($button-width - $toggle-wider - $button-toggle-offset)
-                  );
-                }
-              }
-            }
-          }
-
-          .slider {
-            display: inline-block;
-            width: $button-width;
-            height: $button-height;
-            background: rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(91, 75, 137, 0.45);
-            box-shadow: inset 0px 0px 23.608px rgba(0, 0, 0, 0.3);
-            border-radius: calc($button-height / 2);
-            position: relative;
-            transition: 0.3s all ease-in-out;
-
-            &::after {
-              content: "";
-              display: inline-block;
-              width: $toggle-diameter;
-              height: $toggle-diameter;
-              background: url(/public/images/checkbox_button.svg);
-              background-position: center;
-              background-size: cover;
-              background-size: 80px;
-              background-position-x: 25%;
-              border-radius: calc($toggle-diameter / 2);
-              position: absolute;
-              top: $button-toggle-offset;
-              transform: translateX($button-toggle-offset);
-              box-shadow: $toggle-shadow-offset 0
-                calc($toggle-shadow-offset * 4) rgba(0, 0, 0, 0.1);
-              transition: 0.3s all ease-in-out;
-            }
-          }
+        >img {
+          margin-left: 74px;
         }
-        > div:nth-child(2) {
-          width: 100%;
-          height: 211px;
-          background:
-            url(/public/images/general_noise.png),
-            radial-gradient(
-                141.22% 109.95% at -41.22% 109.95%,
-                rgba(127, 139, 210, 0.3) 0%,
-                rgba(89, 106, 197, 0) 100%
-              )
-              /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-            #191934;
-          background-blend-mode: overlay, normal, normal;
-          padding-top: 50px;
-          h1 {
+
+        >div {
+          margin-left: -20px;
+
+          >h1 {
             font-family: "Plus Jakarta Sans";
             font-style: normal;
-            font-weight: 600;
-            font-size: 62px;
-            line-height: 56px;
-            leading-trim: both;
-            text-edge: cap;
-            text-align: center;
-            letter-spacing: -0.02em;
-            background: linear-gradient(90deg, #f5f1ff -5.56%, #6633ee 109.09%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            margin: 0;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 28px;
+            color: #e6e3ff;
+            margin: 8px 0 0 8px;
           }
-          p {
-            margin-top: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+
+          >p {
             font-family: "Plus Jakarta Sans";
             font-style: normal;
             font-weight: 400;
             font-size: 18px;
+            line-height: 24px;
             leading-trim: both;
             text-edge: cap;
-            display: flex;
-            text-align: center;
-
             color: #b2a1fd;
-
-            background: linear-gradient(
-              90deg,
-              rgba(191, 167, 251, 0.1) 0%,
-              rgba(79, 43, 172, 0.2) 100%
-            );
+            margin: 8px 0 0 8px;
           }
         }
-      }
-    }
-    .details.second {
-      display: flex;
-      gap: $normal-gap;
-      > div:nth-child(1) {
-        min-width: 264px;
-        max-width: 264px;
-        height: 412px;
-        padding-top: 0;
-        background:
-          url(/public/images/general_noise.png),
-          radial-gradient(
-              158.33% 101.7% at 104.55% -1.7%,
-              rgba(89, 106, 197, 0.3) 0%,
-              rgba(89, 106, 197, 0) 100%
-            )
-            #191934;
-        background-blend-mode: overlay, normal, normal;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        > h1 {
-          font-family: "Plus Jakarta Sans";
-          font-style: normal;
-          font-weight: 700;
-          font-size: 20px;
-          line-height: 28px;
-          color: #e6e3ff;
-          margin: 8px 0 0 8px;
-        }
-        > p {
-          font-family: "Plus Jakarta Sans";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 18px;
-          line-height: 24px;
-          leading-trim: both;
-          text-edge: cap;
-          color: #b2a1fd;
-          margin: 8px 0 0 8px;
-        }
-      }
-      > div:nth-child(2) {
-        width: 100%;
-        height: 412px;
-        background:
-          url(/public/images/general_noise.png),
-          radial-gradient(
-              101.34% 136.69% at -1.34% -2.3%,
-              rgba(89, 106, 197, 0.3) 0%,
-              rgba(89, 106, 197, 0) 100%
-            )
-            /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-          #191934;
-        background-blend-mode: overlay, normal, normal;
-        > div {
-          display: flex;
-          justify-content: center;
-          > img {
-            margin-left: 74px;
-          }
-          > div {
-            margin-left: -20px;
-            > h1 {
-              font-family: "Plus Jakarta Sans";
-              font-style: normal;
-              font-weight: 700;
-              font-size: 20px;
-              line-height: 28px;
-              color: #e6e3ff;
-              margin: 8px 0 0 8px;
-            }
-            > p {
-              font-family: "Plus Jakarta Sans";
-              font-style: normal;
-              font-weight: 400;
-              font-size: 18px;
-              line-height: 24px;
-              leading-trim: both;
-              text-edge: cap;
-              color: #b2a1fd;
-              margin: 8px 0 0 8px;
-            }
-          }
-        }
-      }
-    }
-
-    .circle {
-      position: absolute;
-      z-index: 50;
-      width: 270px;
-      height: 270px;
-      left: calc(50% - 540px / 2);
-      top: calc(50% - 270px / 2);
-      background-image: url(/public/images/circle.png);
-      background-position: center;
-      background-size: cover;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 100%;
-      box-shadow: 0px 0px 0px 24px #020915;
-      .edge {
-        width: 24px;
-        height: 24px;
-        position: absolute;
-      }
-      .edge.first {
-        border-radius: 0 0 0 24px;
-        left: 107%;
-        top: 91px;
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: -10px 7px 0px 4px #020915;
-      }
-      .edge.second {
-        border-radius: 0 0 24px 0;
-        right: 107%;
-        top: 91px;
-        border-right: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 10px 10px 0px 4px #020915;
-      }
-      .edge.third {
-        border-radius: 0 24px 0 0;
-        right: 108%;
-        top: 137px;
-        border-right: 1px solid rgba(255, 255, 255, 0.05);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 4px -5px 0px 4px #020915;
-      }
-      .edge.fourth {
-        border-radius: 0 24px 0 0;
-        right: 58%;
-        top: 287px;
-        border-right: 1px solid rgba(255, 255, 255, 0.05);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 4px -5px 0 4px #020915;
-      }
-      .edge.fifth {
-        border-radius: 24px 0 0 0;
-        left: 51%;
-        top: 292px;
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: -4px -5px 0 4px #020915;
-      }
-      .edge.sixth {
-        border-radius: 24px 0 0 0;
-        left: 109%;
-        top: 138px;
-        border-left: 1px solid rgba(255, 255, 255, 0.05);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: -4px -4px 0 4px #020915;
       }
     }
   }
+
   .items {
     height: 70%;
     width: 100%;
@@ -613,8 +571,10 @@
     flex-wrap: wrap;
     align-items: end;
     $color-dot: black;
+
     .dotted-text {
       color: white;
+
       &:before {
         content: "";
         width: 10px;
@@ -624,12 +584,15 @@
         margin: 6px 5px 2px 5px;
       }
     }
+
     .dotted-text.blue {
       $color-dot: #44b7ff;
+
       &:before {
         background: $color-dot;
       }
     }
+
     .dotted-text.purple {
       $color-dot: #c883fb;
 
@@ -637,6 +600,7 @@
         background: $color-dot;
       }
     }
+
     .dotted-text.orange {
       $color-dot: #ffb266;
 
@@ -644,6 +608,7 @@
         background: $color-dot;
       }
     }
+
     .common-bg {
       display: flex;
       align-items: center;
@@ -663,12 +628,15 @@
       text-edge: cap;
       color: #faf9ff;
     }
+
     .common-bg:nth-child(3) {
       font-size: 14px;
+
       .dotted-text:before {
         margin: 6px 5px 2px -1px;
       }
     }
+
     .trial-button {
       box-sizing: border-box;
       display: flex;
@@ -700,12 +668,10 @@
         inset: 0;
         border-radius: 50px;
         padding: 2px;
-        background: linear-gradient(
-          90deg,
-          rgba(255, 178, 102, 1) 0%,
-          rgba(242, 144, 107, 1) 35%,
-          rgba(217, 98, 99, 1) 100%
-        );
+        background: linear-gradient(90deg,
+            rgba(255, 178, 102, 1) 0%,
+            rgba(242, 144, 107, 1) 35%,
+            rgba(217, 98, 99, 1) 100%);
         -webkit-mask:
           linear-gradient(#fff 0 0),
           content-box linear-gradient(#fff 0 0);
@@ -714,12 +680,9 @@
       }
     }
   }
+
   .gift {
-    /* button */
-
     box-sizing: border-box;
-
-    /* Auto layout */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -727,20 +690,17 @@
     padding: 14px;
     gap: 14px;
 
-    background:
-      url(/public/images/general_noise.png),
-      radial-gradient(
-          183.81% 220.09% at 18.23% -40.51%,
-          #ffdaa3 0%,
-          #e27f5a 46.78%,
-          #691616 100%
-        )
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    background: url(/public/images/general_noise.png),
+      radial-gradient(183.81% 220.09% at 18.23% -40.51%,
+        #ffdaa3 0%,
+        #e27f5a 46.78%,
+        #691616 100%);
     background-blend-mode: overlay, normal;
     border: 1px solid rgba(255, 255, 255, 0.23);
     border-radius: 100%;
     outline: none;
   }
+
   .camera {
     outline: none;
     display: flex;
@@ -757,69 +717,91 @@
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 100%;
   }
+
   .items {
     position: relative;
+
     .item {
       position: absolute;
       animation-name: drop;
       animation-timing-function: ease-in;
-      animation-duration: 1s;
     }
+
     .item:nth-child(1) {
       left: 134px;
       bottom: 0;
+      animation-duration: 2s;
     }
+
     .item:nth-child(2) {
       right: 0;
       bottom: 0;
+      animation-duration: 2s;
     }
+
     .item:nth-child(3) {
       left: 226px;
       bottom: 33px;
       transform: rotate(24deg);
+      animation-duration: 3s;
     }
+
     .item:nth-child(4) {
       left: 416px;
       top: 129.68px;
+      animation-duration: 4s;
       transform: matrix(0.62, 0.79, 0.79, -0.62, 0, 0);
     }
+
     .item:nth-child(5) {
       left: 284px;
       top: 93.09px;
+      animation-duration: 4s;
       transform: rotate(-28deg);
     }
+
     .item:nth-child(6) {
       left: 163px;
       bottom: 55px;
+      animation-duration: 3.5s;
       transform: matrix(-0.87, 0.5, 0.5, 0.87, 0, 0);
     }
+
     .item:nth-child(7) {
       left: 365px;
       top: 133.91px;
+      animation-duration: 3.5s;
       transform: rotate(19.18deg);
     }
   }
+
   @keyframes drop {
     0% {
       transform: translateY(-100vh);
+
       animation-timing-function: ease-in;
     }
+
     40% {
       transform: translateY(-30vh);
       animation-timing-function: ease-in;
     }
+
     65% {
       transform: translateY(-20vh);
       animation-timing-function: ease-in;
     }
+
     82% {
       transform: translateY(-10vh);
       animation-timing-function: ease-in;
     }
+
     92% {
       transform: translateY(-5vh);
       animation-timing-function: ease-in;
     }
+
     25%,
     55%,
     75%,
@@ -830,4 +812,67 @@
       animation-timing-function: ease-out;
     }
   }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+      filter: brightness(1);
+    }
+
+    to {
+      transform: rotate(calc(50 * 360deg));
+      filter: brightness(1.2);
+    }
+  }
+
+
+
+}
+@media screen and (max-width:1290px){
+  .projects.container{
+    width: 50%;
+    margin: inherit;
+
+  }
+  .details.first{
+    flex-wrap: wrap;
+    >div:nth-child(2){
+      order: 3;
+    }
+  }
+  .details.second{
+    flex-wrap: wrap;
+  }
+  .dropping-items{
+    display: none;
+  }
+  .projects.container .circle {
+    width: 200px;
+    height: 200px;
+    top: calc(50% - -43px)
+  }
+  
+}
+@media screen and (max-width:600px){
+  .info{
+    max-width: 100%!important;
+    width: 100%!important;
+  }
+  .container{
+    width:90%!important
+  }
+  .projects.container .details.first > div:nth-child(3){
+    width: 100%!important;
+    max-width: 100%!important;
+  }
+  .projects.container .details.second > div:nth-child(1){
+
+    order: 2;
+    width: 100%;
+  }
+  .projects.container .circle{
+    top: calc(50% + 74px);
+    left: calc(50% - 97px);
+  }
+  
 }

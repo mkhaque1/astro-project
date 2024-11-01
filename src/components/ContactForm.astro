@@ -1,0 +1,66 @@
+---
+---
+
+<div class="form-wrapper">
+    <form action="submit">
+        <div class="name-wrapper">
+            <input placeholder="First Name" required type="text" class="form-input first-name" />
+            <input placeholder="Last Name" required type="text" class="form-input last-name" />
+        </div>
+        <div class="name-wrapper">
+            <input type="email" required placeholder="Email" class="form-input" />
+            <input type="number" placeholder="Phone Number" class="form-input" />
+        </div>
+        <button type="submit" class="form-button">Let's Talk</button>
+    </form>
+</div>
+
+<style>
+    .form-wrapper {
+        background-color: rgba(255, 255, 255, 0.242);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        width: 80%;
+        margin: auto; /* Center the form within its parent */
+        text-align: center;
+    }
+
+    .name-wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 2rem; 
+    }
+
+    .form-input {
+        width: 100%; /* Slightly less than 50% to create space between inputs */
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .form-input:focus {
+        border-color: #6a11cb;
+    }
+
+    .form-button {
+        width: 100%;
+        padding: 15px;
+        background-color: #2575fc;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .form-button:hover {
+        background-color: #6a11cb;
+        transform: translateY(-2px);
+    }
+</style>

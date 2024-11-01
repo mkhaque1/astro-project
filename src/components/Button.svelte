@@ -3,10 +3,11 @@
     import "/public/Vector (4).svg";
     import FaLongArrowAltRight from 'svelte-icons/fa/FaLongArrowAltRight.svelte';
     export let title;
+    export let href= "";
 </script>
 
-<button class="button" >{title}<span class="icon"><FaLongArrowAltRight/></span>
-</button>
+<a href={href} class="button" >{title}<span class="icon"><FaLongArrowAltRight/></span>
+</a>
 
 <style>
     .icon{

@@ -1,5 +1,6 @@
 .navbar {
   position: fixed;
+  height: 70px;
   top: 2%;
   z-index: 9999;
   width: 80%;
@@ -7,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 0px;
-  background-color: #eeeeee4e;
+  background-color: #5f4bb64e;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 7px;

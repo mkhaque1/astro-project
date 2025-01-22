@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@iconify/svelte": "^4.0.2",
+    "@types/jquery": "^3.5.32",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "sass": "^1.77.8"

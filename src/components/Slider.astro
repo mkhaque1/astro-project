@@ -1,0 +1,136 @@
+---
+import Button from './Button.svelte';
+
+// Slider.astro
+---
+
+<script>
+  if (typeof window !== 'undefined') {
+    const script = document.createElement('script');
+    script.src =
+      'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js';
+    script.onload = () => {
+      const slickScript = document.createElement('script');
+      slickScript.src =
+        'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js';
+      slickScript.onload = () => {
+        $('.slider').slick({
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          autoplay: false,
+          arrows: false,
+          variableWidth: true,
+        });
+
+        // Reverse the autoplay direction
+        setInterval(function () {
+          $('.slider').slick('slickPrev'); // Move to the previous slide
+        }, 2000);
+      };
+      document.body.appendChild(slickScript);
+    };
+    document.body.appendChild(script);
+  }
+</script>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+/>
+
+<section>
+  <div class="slider">
+    <img src="/images/project1.png" />
+    <img src="/images/project2.png" />
+    <img src="/images/project1.png" />
+    <img src="/images/project2.png" />
+    <img src="/images/project1.png" />
+    <img src="/images/project2.png" />
+    <img src="/images/project1.png" />
+    <img src="/images/project2.png" />
+  </div>
+  <div class="content">
+    <h2>Here We are</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo
+      mauris, sollicitudin vitae semper vestibulum, feugiat ut lacus. Vestibulum
+      tristique, augue vitae aliquet euismod, elit massa viverra lectus.
+    </p>
+    <button>Learn More</button>
+  </div>
+</section>
+
+<style>
+  section {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+  section > div {
+    width: 50%;
+  }
+  .slider:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #02283c 93%);
+    z-index: 1;
+  }
+  .slider img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  .slick-track {
+    margin-left: calc(50vw - 210px);
+  }
+  .content {
+    margin-right: calc((100% - 1400px) / 2);
+    padding: 1rem 2rem;
+  }
+  .content h2,
+  .content p {
+    color: #fff;
+  }
+  .content p {
+    line-height: 1.8;
+    padding: 1rem 0rem;
+  }
+  button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #0273a3;
+    color: #fff;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #064965;
+    color: #fff;
+  }
+  @media (max-width: 767px) {
+    section {
+      flex-direction: column-reverse;
+    }
+    section > div {
+      width: 100%;
+    }
+    .slider:after {
+      background: none;
+    }
+    .content {
+      margin-right: auto;
+      padding: 0 2rem;
+    }
+  }
+</style>

@@ -15,7 +15,7 @@
           <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/service">Services</a>
-          <a href="/">Portfolio</a>
+          <a href="/">Projects</a>
           <a href="/contact">Contact</a>
         </nav>
       </div>
@@ -61,7 +61,6 @@
       background: white;
       backdrop-filter: blur(20px);
       display: flex;
-      align-items: center;
       justify-content: center;
       z-index: 999;
       animation: fadeIn 0.3s ease forwards;
@@ -69,7 +68,7 @@
       .mobile-nav {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
         text-align: center;
   
         a {
@@ -88,7 +87,6 @@
             background: linear-gradient(90deg, #ff4d4d, #ff944d);
             transition: width 0.3s ease;
           }
-  
           &:hover::after {
             width: 100%;
           }

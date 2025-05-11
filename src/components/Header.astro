@@ -5,7 +5,7 @@ import MobileHeader from './MobileHeader.svelte';
 
 <header class="main-header">
   <div class="nav-container">
-    <h1 class="logo">PyOnet</h1>
+    <h1 class="logo"><img src="/images/logo.svg" alt="logo pyonet" /></h1>
     <nav class="desktop-nav">
       <a href="/">Home</a>
       <a href="/about">About</a>
@@ -13,7 +13,7 @@ import MobileHeader from './MobileHeader.svelte';
       <a href="/">Portfolio</a>
       <a href="/contact">Contact</a>
     </nav>
-    <div>
+    <div class="desktop-btn">
       <Button title="Contact" />
     </div>
     <div class="mobile-toggle">
@@ -41,10 +41,16 @@ import MobileHeader from './MobileHeader.svelte';
       max-width: 1200px;
       margin: auto;
     }
+    .desktop-btn {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 12px;
+      width: 100%;
+      max-width: 50px;
     }
 
     .desktop-nav {

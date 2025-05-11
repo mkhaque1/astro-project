@@ -55,8 +55,8 @@
       position: absolute;
       padding: 2rem;
       top: 110%;
-      left: 40%;
-      width: 200px;
+      left: 45%;
+      width: 150px;
       border-radius: 15px;
       background: white;
       backdrop-filter: blur(20px);
@@ -76,6 +76,7 @@
           font-size: 14px;
           text-decoration: none;
           position: relative;
+          
   
           &::after {
             content: '';

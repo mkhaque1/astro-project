@@ -5,7 +5,8 @@ import MobileHeader from './MobileHeader.svelte';
 
 <header class="main-header">
   <div class="nav-container">
-    <h1 class="logo"><img src="/images/logo.svg" alt="logo pyonet" /></h1>
+    <a href="/" class="logo"><img src="/images/logo.svg" alt="logo pyonet" /></a
+    >
     <nav class="desktop-nav">
       <a href="/">Home</a>
       <a href="/about">About</a>
@@ -50,7 +51,9 @@ import MobileHeader from './MobileHeader.svelte';
     .logo {
       font-size: 12px;
       width: 100%;
-      max-width: 50px;
+      img {
+        width: 50px;
+      }
     }
 
     .desktop-nav {

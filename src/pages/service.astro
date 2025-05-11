@@ -14,6 +14,15 @@ import Layout from '../layouts/Layout.astro';
     </section>
     <div class="blur"></div>
 
+    <div class="box__image">
+      <img
+        src="/images/pngegg (100) 1 (1).png"
+        width="450"
+        alt="Service Illustration"
+      />
+    </div>
+    <div class="blur2"></div>
+
     <section class="services__grid">
       {
         [
@@ -26,20 +35,8 @@ import Layout from '../layouts/Layout.astro';
           'Branding',
           'Consulting',
           'Support & Maintenance',
-          'Cloud Services',
-          'Data Analysis',
-          'Cybersecurity',
           'eCommerce Solutions',
-          'API Development',
-          'Custom Software Development',
-          'Training & Workshops',
-          'Technical Writing',
-          'Project Management',
-          'Quality Assurance',
-          'System Integration',
-          'DevOps Services',
-          'Virtual Reality Solutions',
-          'Augmented Reality Solutions',
+          'SaaS Development',
         ].map((service) => <div class="service-item glass-card">{service}</div>)
       }
     </section>
@@ -74,6 +71,16 @@ import Layout from '../layouts/Layout.astro';
       }
     }
 
+    .box__image {
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
     .services__grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -86,7 +93,7 @@ import Layout from '../layouts/Layout.astro';
         text-align: center;
         border-radius: 1rem;
         transition: 0.3s ease;
-
+        cursor: pointer;
         &:hover {
           transform: scale(1.05);
           border: 1px solid rgba(0, 255, 255, 0.2);
@@ -110,6 +117,16 @@ import Layout from '../layouts/Layout.astro';
     filter: blur(200px);
     position: absolute;
     right: 0;
+    z-index: 1;
+  }
+  .blur2 {
+    width: 244px;
+    height: 244px;
+    background-color: #1683f8;
+    filter: blur(200px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
     z-index: 1;
   }
 </style>

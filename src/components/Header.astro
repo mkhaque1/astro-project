@@ -1,122 +1,91 @@
 ---
 import Button from './Button.svelte';
-import '../scss/components/header.scss';
+import MobileHeader from './MobileHeader.svelte';
 ---
 
-<nav>
-  <div class="navbar">
-    <div class="logo">
-      <a href="/"
-        ><svg
-          width="29"
-          height="22"
-          viewBox="0 0 29 22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M6.5 3L6.59435 3.25497C7.56306 5.87288 9.62712 7.93694 12.245 8.90565L12.5 9L12.245 9.09435C9.62712 10.0631 7.56306 12.1271 6.59435 14.745L6.5 15L6.40565 14.745C5.43694 12.1271 3.37288 10.0631 0.754973 9.09435L0.5 9L0.754973 8.90565C3.37288 7.93694 5.43694 5.87288 6.40565 3.25497L6.5 3Z"
-            fill="#FFB367"></path>
-          <path
-            d="M1.80966 9C3.85775 8.01186 5.51186 6.35775 6.5 4.30966C7.48814 6.35775 9.14225 8.01186 11.1903 9C9.14225 9.98814 7.48814 11.6422 6.5 13.6903C5.51186 11.6422 3.85775 9.98814 1.80966 9Z"
-            stroke="white"
-            stroke-opacity="0.05"></path>
-          <mask
-            id="path-3-outside-1_2_966"
-            maskUnits="userSpaceOnUse"
-            x="9.93103"
-            y="0.148865"
-            width="19"
-            height="22"
-            fill="black"
-          >
-            <rect fill="white" x="9.93103" y="0.148865" width="19" height="22"
-            ></rect>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M20.3518 1.14886H15.9044V1.14889H10.931C10.931 3.89562 13.1577 6.12228 15.9044 6.12228C15.9103 6.12228 15.9162 6.12227 15.922 6.12225H20.3518C21.6987 6.12225 22.7906 7.21417 22.7906 8.56113C22.7906 9.90808 21.6987 11 20.3518 11H17.4519C13.9176 11 11.0524 13.8651 11.0524 17.3994V20.8511H16.0258V17.3994C16.0258 16.6118 16.6643 15.9734 17.4519 15.9734H20.3518C24.4455 15.9734 27.764 12.6548 27.764 8.56113C27.764 4.6443 24.726 1.43704 20.8778 1.16724C20.8778 1.16113 20.8778 1.15501 20.8778 1.14889H20.3731C20.366 1.14887 20.3589 1.14886 20.3518 1.14886Z"
-            ></path>
-          </mask>
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M20.3518 1.14886H15.9044V1.14889H10.931C10.931 3.89562 13.1577 6.12228 15.9044 6.12228C15.9103 6.12228 15.9162 6.12227 15.922 6.12225H20.3518C21.6987 6.12225 22.7906 7.21417 22.7906 8.56113C22.7906 9.90808 21.6987 11 20.3518 11H17.4519C13.9176 11 11.0524 13.8651 11.0524 17.3994V20.8511H16.0258V17.3994C16.0258 16.6118 16.6643 15.9734 17.4519 15.9734H20.3518C24.4455 15.9734 27.764 12.6548 27.764 8.56113C27.764 4.6443 24.726 1.43704 20.8778 1.16724C20.8778 1.16113 20.8778 1.15501 20.8778 1.14889H20.3731C20.366 1.14887 20.3589 1.14886 20.3518 1.14886Z"
-            fill="#FAF9FF"></path>
-          <path
-            d="M15.9044 1.14886V0.148865H14.9044V1.14886H15.9044ZM15.9044 1.14889V2.14889H16.9044V1.14889H15.9044ZM10.931 1.14889V0.148895H9.93103V1.14889H10.931ZM15.922 6.12225V5.12225L15.9185 5.12226L15.922 6.12225ZM11.0524 20.8511H10.0524V21.8511H11.0524V20.8511ZM16.0258 20.8511V21.8511H17.0258V20.8511H16.0258ZM20.8778 1.16724L19.8778 1.16365L19.8744 2.09935L20.8078 2.16479L20.8778 1.16724ZM20.8778 1.14889H21.8778V0.148895H20.8778V1.14889ZM20.3731 1.14889L20.3703 2.14889H20.3731V1.14889ZM15.9044 2.14886H20.3518V0.148865H15.9044V2.14886ZM16.9044 1.14889V1.14886H14.9044V1.14889H16.9044ZM15.9044 0.148895H10.931V2.14889H15.9044V0.148895ZM9.93103 1.14889C9.93103 4.44791 12.6054 7.12228 15.9044 7.12228V5.12228C13.71 5.12228 11.931 3.34334 11.931 1.14889H9.93103ZM15.9044 7.12228C15.9114 7.12228 15.9185 7.12227 15.9255 7.12225L15.9185 5.12226C15.9139 5.12228 15.9092 5.12228 15.9044 5.12228V7.12228ZM20.3518 5.12225H15.922V7.12225H20.3518V5.12225ZM23.7906 8.56113C23.7906 6.66189 22.251 5.12225 20.3518 5.12225V7.12225C21.1464 7.12225 21.7906 7.76646 21.7906 8.56113H23.7906ZM20.3518 12C22.251 12 23.7906 10.4604 23.7906 8.56113H21.7906C21.7906 9.3558 21.1464 10 20.3518 10V12ZM17.4519 12H20.3518V10H17.4519V12ZM12.0524 17.3994C12.0524 14.4174 14.4699 12 17.4519 12V10C13.3653 10 10.0524 13.3128 10.0524 17.3994H12.0524ZM12.0524 20.8511V17.3994H10.0524V20.8511H12.0524ZM16.0258 19.8511H11.0524V21.8511H16.0258V19.8511ZM15.0258 17.3994V20.8511H17.0258V17.3994H15.0258ZM17.4519 14.9734C16.112 14.9734 15.0258 16.0596 15.0258 17.3994H17.0258C17.0258 17.1641 17.2166 16.9734 17.4519 16.9734V14.9734ZM20.3518 14.9734H17.4519V16.9734H20.3518V14.9734ZM26.764 8.56113C26.764 12.1025 23.8932 14.9734 20.3518 14.9734V16.9734C24.9977 16.9734 28.764 13.2071 28.764 8.56113H26.764ZM20.8078 2.16479C24.1359 2.39812 26.764 5.17314 26.764 8.56113H28.764C28.764 4.11545 25.3161 0.475955 20.9477 0.169688L20.8078 2.16479ZM21.8778 1.17083C21.8778 1.16357 21.8778 1.15626 21.8778 1.14889H19.8778C19.8778 1.15377 19.8778 1.15868 19.8778 1.16365L21.8778 1.17083ZM20.8778 0.148895H20.3731V2.14889H20.8778V0.148895ZM20.3518 2.14886C20.3579 2.14886 20.3641 2.14887 20.3703 2.14889L20.3759 0.148899C20.3679 0.148876 20.3598 0.148865 20.3518 0.148865V2.14886Z"
-            fill="#4E17D1"
-            fill-opacity="0.6"
-            mask="url(#path-3-outside-1_2_966)"></path>
-        </svg></a
-      >
+<header class="main-header">
+  <div class="nav-container">
+    <h1 class="logo">PyOnet</h1>
+    <nav class="desktop-nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/service">Services</a>
+      <a href="/">Portfolio</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div>
+      <Button title="Contact" />
     </div>
-    <div class="menu">
-      <ul class="header-ul">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/service">Service</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </div>
-    <button class="burger"><span></span></button>
-
-    <div class="btn">
-      <Button href="/contact" title="Learn More" />
+    <div class="mobile-toggle">
+      <MobileHeader client:load />
     </div>
   </div>
-</nav>
+</header>
 
-<!-- Mobile Navigation -->
-<div class="mbl-nav">
-  <ul class="mbl-header">
-    <li><a href="/" class="active">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/service">Service</a></li>
-    <li><a href="/contact">Contact</a></li>
-  </ul>
-</div>
+<style lang="scss">
+  .main-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    background: rgba(145, 138, 138, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    color: white;
 
-<!-- Overlay div -->
-<div id="overlay" class="overlay"></div>
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-<script>
-  const headerUl = document.querySelector(
-    '.header-ul'
-  ) as HTMLUListElement | null;
-  const links = document.querySelectorAll(
-    '.header-ul li a'
-  ) as NodeListOf<HTMLAnchorElement>;
-  const btn = document.querySelector('.burger') as HTMLButtonElement | null;
-  const overlay = document.querySelector('#overlay') as HTMLDivElement | null;
-  const mblNav = document.querySelector('.mbl-nav') as HTMLDivElement | null;
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
-  if (headerUl) {
-    headerUl.addEventListener('click', (event) => {
-      const clickedElement = event.target as HTMLElement;
+    .desktop-nav {
+      display: flex;
+      gap: 2rem;
 
-      if (clickedElement.tagName === 'A') {
-        links.forEach((link) => {
-          link.classList.remove('active');
-        });
+      a {
+        position: relative;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
 
-        clickedElement.classList.add('active');
+        &::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #ff4d4d, #ff944d);
+          left: 0;
+          bottom: -5px;
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
       }
-    });
-  }
+    }
 
-  if (btn && overlay && mblNav) {
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('show');
-      overlay.classList.toggle('active');
-      mblNav.classList.toggle('active'); // Toggle mobile navigation visibility
-    });
+    .mobile-toggle {
+      display: none;
+    }
 
-    // Close overlay and mobile navigation when clicking anywhere on the overlay
-    overlay.addEventListener('click', () => {
-      overlay.classList.remove('active');
-      btn.classList.remove('show');
-      mblNav.classList.remove('active'); // Hide mobile navigation
-    });
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+    }
   }
-</script>
+</style>

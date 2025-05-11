@@ -73,7 +73,7 @@
   
         a {
           color: black;
-          font-size: 1.5rem;
+          font-size: 14px;
           text-decoration: none;
           position: relative;
   

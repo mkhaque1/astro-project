@@ -1,0 +1,88 @@
+---
+
+---
+
+<section class="team-section">
+  <div class="team-wrapper">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="/images/team1.jpg" alt="Team Member" />
+        <h3>Amina Rahman</h3>
+        <p>Creative Director</p>
+      </div>
+      <div class="team-card">
+        <img src="/images/team2.jpg" alt="Team Member" />
+        <h3>Tanvir Islam</h3>
+        <p>Lead Developer</p>
+      </div>
+      <div class="team-card">
+        <img src="/images/team3.jpg" alt="Team Member" />
+        <h3>Sarah Ahmed</h3>
+        <p>UX Strategist</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .team-section {
+    padding: 5rem 2rem;
+    color: white;
+    backdrop-filter: blur(14px);
+
+    .team-wrapper {
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.15)
+        );
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        margin: 0.5rem 0;
+        font-size: 1.25rem;
+      }
+
+      p {
+        color: #ccc;
+        font-size: 0.95rem;
+      }
+    }
+  }
+</style>

@@ -1,48 +1,52 @@
 ---
 import '../scss/pages/index.scss';
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Button from '../components/Button.svelte';
-import Title from '../components/Title.astro';
-
-import '../scss/sections/hero.scss';
+import MissionVision from '../components/About/MissionVision.astro';
+import TeamSection from '../components/About/TeamSection.astro';
+import ContactCta from '../components/About/ContactCta.astro';
+import Hero from '../sections/Hero.astro';
+import Tags from '../components/Tags.svelte';
+import Sections from '../layouts/Sections.astro';
+import LogoSlider from '../components/LogoSlider.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <section class="hero">
-      <div class="hero__content">
-        <h1>PyOnet</h1>
-        <p>
-          Astro is a modern static site generator that makes building fast
-          websites easy.
-        </p>
-        <Button href="/contact" title="Get Started" />
-      </div>
-    </section>
+<Layout title="About Pyonet Agency">
+  <main class="about-page">
+    <Hero />
+    <Sections>
+      <Tags />
+    </Sections>
+
+    <MissionVision />
+    <div class="blur"></div>
+    <Sections>
+      <LogoSlider />
+    </Sections>
+    <TeamSection />
+    <ContactCta />
   </main>
 </Layout>
 
-<style>
-  .hero {
-    height: 100vh;
+<style lang="scss">
+  .about-page {
+    position: relative;
+    padding: 4rem 2rem;
+    color: #fff;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
+    flex-direction: column;
+    gap: 3rem;
 
-  .hero__content {
-    text-align: center;
-  }
-
-  .hero__content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero__content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    .blur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      background: rgba(190, 12, 217, 0.356);
+      filter: blur(70px);
+      z-index: -1;
+    }
   }
 </style>

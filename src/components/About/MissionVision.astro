@@ -1,0 +1,71 @@
+---
+
+---
+
+<section class="mission-vision">
+  <div class="wrapper">
+    <div class="box">
+      <h2>Our Mission</h2>
+      <p>
+        Empowering brands through cutting-edge technology and human-focused
+        design.
+      </p>
+    </div>
+    <div class="box">
+      <h2>Our Vision</h2>
+      <p>
+        To be a global leader in innovative digital solutions that transform
+        businesses.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .mission-vision {
+    background: linear-gradient(
+      145deg,
+      rgba(10, 10, 25, 0.8),
+      rgba(40, 40, 60, 0.8)
+    );
+    backdrop-filter: blur(20px);
+    padding: 5rem 2rem;
+    color: white;
+
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .box {
+      flex: 1 1 400px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.4s ease;
+
+      &:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.15)
+        );
+      }
+
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #ccc;
+      }
+    }
+  }
+</style>

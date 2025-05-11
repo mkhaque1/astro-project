@@ -1,0 +1,72 @@
+---
+
+---
+
+<section class="contact-cta">
+  <div class="cta-box">
+    <h2>Ready to work together?</h2>
+    <p>
+      Let’s bring your next big idea to life. Reach out and start a conversation
+      with us today.
+    </p>
+
+    <a class="cta-button" href="/contavt">Get in touch</a>
+  </div>
+</section>
+
+<style lang="scss">
+  .cta-button {
+    background-color: #ff944d;
+  }
+  .contact-cta {
+    background: linear-gradient(
+      180deg,
+      rgba(30, 30, 40, 0.9),
+      rgba(50, 50, 70, 0.9)
+    );
+    padding: 5rem 2rem;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(12px);
+
+    .cta-box {
+      max-width: 700px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.4s ease;
+
+      &:hover {
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.12)
+        );
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #ccc;
+        margin-bottom: 2rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background: linear-gradient(135deg, #ff4d4d, #ff944d);
+        color: white;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+    }
+  }
+</style>

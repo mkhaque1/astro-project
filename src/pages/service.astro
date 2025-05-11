@@ -1,0 +1,115 @@
+---
+// src/pages/services.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Our Services">
+  <main class="services">
+    <section class="services__intro glass-card">
+      <h1>Pyonet Services</h1>
+      <p>
+        Empowering your business with cutting-edge digital solutions, design,
+        and innovation.
+      </p>
+    </section>
+    <div class="blur"></div>
+
+    <section class="services__grid">
+      {
+        [
+          'Web Development',
+          'Mobile App Development',
+          'UI/UX Design',
+          'Digital Marketing',
+          'SEO Optimization',
+          'Content Creation',
+          'Branding',
+          'Consulting',
+          'Support & Maintenance',
+          'Cloud Services',
+          'Data Analysis',
+          'Cybersecurity',
+          'eCommerce Solutions',
+          'API Development',
+          'Custom Software Development',
+          'Training & Workshops',
+          'Technical Writing',
+          'Project Management',
+          'Quality Assurance',
+          'System Integration',
+          'DevOps Services',
+          'Virtual Reality Solutions',
+          'Augmented Reality Solutions',
+        ].map((service) => <div class="service-item glass-card">{service}</div>)
+      }
+    </section>
+  </main>
+</Layout>
+
+<style lang="scss">
+  .services {
+    padding: 4rem 2rem;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .services__intro {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 1.5rem;
+
+      h1 {
+        font-size: 2.8rem;
+        background: linear-gradient(135deg, #5e17ed, #f06056);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.2rem;
+        margin-top: 1rem;
+      }
+    }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+
+      .service-item {
+        padding: 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+        border-radius: 1rem;
+        transition: 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          border: 1px solid rgba(0, 255, 255, 0.2);
+          background: rgba(0, 255, 255, 0.07);
+        }
+      }
+    }
+  }
+
+  // Reusable glass effect
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .blur {
+    width: 244px;
+    height: 244px;
+    background-color: #ea30d4;
+    filter: blur(200px);
+    position: absolute;
+    right: 0;
+    z-index: 1;
+  }
+</style>

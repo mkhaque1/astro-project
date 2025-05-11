@@ -3,7 +3,6 @@ import '../scss/pages/index.scss';
 import '../scss/sections/process.scss';
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
-import Header from '../components/Header.astro';
 import Sections from '../layouts/Sections.astro';
 import Tags from '../components/Tags.svelte';
 import Grid from '../components/Grid.astro';
@@ -14,6 +13,7 @@ import Card from '../components/Card.astro';
 import Projects from '../components/projects.astro';
 import LogoSlider from '../components/LogoSlider.astro';
 import Slider from '../components/Slider.astro';
+import ContactForm from '../components/ContactForm.astro';
 
 let services = [
   {
@@ -56,7 +56,6 @@ let cards = [
 
 <Layout title="Welcome to Astro.">
   <main class="container">
-    <Header />
     <Sections>
       <Hero />
     </Sections>
@@ -81,7 +80,7 @@ let cards = [
     <Sections>
       <div class="process__section">
         <Title title="Our Solution" subtitle="Process" />
-        <Button title="Learn More" />
+        <Button href="/contact" title="Learn More" />
       </div>
 
       <div class="process__card">
@@ -90,7 +89,7 @@ let cards = [
         </div>
         {
           cards.map((card) => (
-            <Card href="#" title={card.title} body={card.body} />
+            <Card href="/contact" title={card.title} body={card.body} />
           ))
         }
         <div class="blur"></div>
@@ -99,7 +98,7 @@ let cards = [
     <Sections>
       <div class="process__section">
         <Title title="Our best" subtitle="Works" />
-        <Button title="Learn More" />
+        <Button href="/contact" title="Learn More" />
       </div>
       <Slider />
       <Projects />
@@ -113,6 +112,8 @@ let cards = [
     <Sections />
     <Sections>
       <Title title="Let's Connect" subtitle="Together" />
+      <ContactForm />
+      <div class="blur"></div>
     </Sections>
   </main>
 </Layout>

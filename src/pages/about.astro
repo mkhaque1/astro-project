@@ -1,16 +1,48 @@
 ---
-import "../scss/pages/index.scss";
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Button from "../components/Button.svelte";
-import Title from "../components/Title.astro";
-import Header from "../components/Header.astro";
+import '../scss/pages/index.scss';
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.svelte';
+import Title from '../components/Title.astro';
 
-import "../scss/sections/hero.scss";
+import '../scss/sections/hero.scss';
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="container">
-    <Header />
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <h1>PyOnet</h1>
+        <p>
+          Astro is a modern static site generator that makes building fast
+          websites easy.
+        </p>
+        <Button href="/contact" title="Get Started" />
+      </div>
+    </section>
   </main>
 </Layout>
+
+<style>
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .hero__content {
+    text-align: center;
+  }
+
+  .hero__content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero__content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+</style>

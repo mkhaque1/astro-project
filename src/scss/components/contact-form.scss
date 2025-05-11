@@ -1,0 +1,154 @@
+.contact-section {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  color: #fff;
+  .contact-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.contact-info {
+  flex: 1;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.social-icons a {
+  padding: 0.5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.contact-form {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.input-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.input-box input,
+.message-box textarea {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.radios label {
+  background: rgba(112, 92, 179, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.radios input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  .textarea {
+    width: fit-content;
+    min-height: 100px;
+    resize: none;
+  }
+}
+
+button[type="submit"] {
+  align-self: flex-end;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 7px;
+  background: #5f72be;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: #4e5bbd;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+  }
+}

@@ -1,66 +1,74 @@
 ---
+import '../scss/components/contact-form.scss';
 ---
 
-<div class="form-wrapper">
-    <form action="submit">
-        <div class="name-wrapper">
-            <input placeholder="First Name" required type="text" class="form-input first-name" />
-            <input placeholder="Last Name" required type="text" class="form-input last-name" />
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p>Fill up the form and our Team will get back to you within 24 hours.</p>
+      <ul>
+        <li><span>📞</span> +0123 4567 8910</li>
+        <li><span>✉️</span> contact@pyonet.com</li>
+        <li><span>📍</span> 102 Street 2714 Don</li>
+      </ul>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" rel="noopener">
+          <img src="/icons8-facebook-logo-48.png" alt="Facebook" />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener">
+          <img src="/icons8-instagram-48.png" alt="Instagram" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">
+          <img src="/icons8-linkedin-48.png" alt="Linkedin" />
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form">
+      <h1>Contact Us</h1>
+      <p>Any question or remarks? Just write us a message!</p>
+
+      <div class="input-group">
+        <div class="input-box">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" />
         </div>
-        <div class="name-wrapper">
-            <input type="email" required placeholder="Email" class="form-input" />
-            <input type="number" placeholder="Phone Number" class="form-input" />
+        <div class="input-box">
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe" />
         </div>
-        <button type="submit" class="form-button">Let's Talk</button>
+      </div>
+
+      <div class="input-group">
+        <div class="input-box">
+          <label>Mail</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="input-box">
+          <label>Phone</label>
+          <input type="tel" placeholder="+90 543 779 94 64" />
+        </div>
+      </div>
+
+      <div class="radio-group">
+        <label>What the of website do you need?</label>
+        <div class="radios">
+          <label><input type="radio" name="type" /> Web Design</label>
+          <label
+            ><input type="radio" name="type" checked /> Web Development</label
+          >
+          <label><input type="radio" name="type" /> Logo Design</label>
+          <label><input type="radio" name="type" /> Other</label>
+        </div>
+      </div>
+
+      <div class="message-box">
+        <label>Message</label>
+        <textarea placeholder="Write your message.."></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
     </form>
-</div>
-
-<style>
-    .form-wrapper {
-        background-color: rgba(255, 255, 255, 0.242);
-        backdrop-filter: blur(15px);
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        width: 80%;
-        margin: auto; /* Center the form within its parent */
-        text-align: center;
-    }
-
-    .name-wrapper {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        margin-bottom: 2rem; 
-    }
-
-    .form-input {
-        width: 100%; /* Slightly less than 50% to create space between inputs */
-        padding: 15px;
-        border: none;
-        border-radius: 10px;
-        outline: none;
-        transition: border-color 0.3s;
-    }
-
-    .form-input:focus {
-        border-color: #6a11cb;
-    }
-
-    .form-button {
-        width: 100%;
-        padding: 15px;
-        background-color: #2575fc;
-        border: none;
-        border-radius: 10px;
-        color: white;
-        font-size: 22px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .form-button:hover {
-        background-color: #6a11cb;
-        transform: translateY(-2px);
-    }
-</style>
+  </div>
+</section>

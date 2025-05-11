@@ -1,18 +1,16 @@
 .navbar {
-  position: fixed;
-  height: 70px;
-  top: 2%;
+  position: sticky;
+  top: 0; /* Sticky at the top */
   z-index: 9999;
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0px;
-  background-color: #5f4bb64e;
+  padding: 10px 20px;
+  background-color: rgba(95, 75, 182, 0.3); /* Transparent glass effect */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 7px;
-  padding: 5px 10px;
 }
 .logo img {
   width: 100%;
@@ -55,13 +53,64 @@
 }
 .mbl-nav {
   display: none;
+  position: fixed;
+  right: 20px;
+  top: 70px; /* Below the sticky header */
+  width: 300px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1); /* Glass effect */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: #fff; /* White text for modern look */
+  z-index: 1001; /* Above overlay */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Optional shadow */
+  transform: translateX(100%);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.mbl-nav.active {
+  display: block;
+  transform: translateX(0); /* Slide in */
+}
+
+.mbl-nav a {
+  display: block;
+  padding: 15px 0;
+  color: #fff; /* White text */
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: rgb(var(--accent-light)); /* Accent color on hover */
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  z-index: 1000;
+}
+
+.overlay.active {
+  display: block;
 }
 
 @media only screen and (max-width: 600px) {
   .navbar {
-    backdrop-filter: blur(20px);
-    width: 85%;
+    width: 100%;
+    padding: 10px 15px;
   }
+
   .menu {
     display: none;
   }
@@ -143,7 +192,9 @@
   .burger.show span::after {
     transform: rotate(225deg);
     top: 0;
-  }
+  } /* SCSS (header.scss) */
+
+  /* Mobile navigation initially hidden */
 
   /* SCSS (header.scss) */
 

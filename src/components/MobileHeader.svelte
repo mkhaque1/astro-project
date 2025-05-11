@@ -52,13 +52,14 @@
     }
   
     .mobile-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(10px);
+      position: absolute;
+      padding: 2rem;
+      top: 110%;
+      left: 40%;
+      width: 200px;
+      border-radius: 15px;
+      background: white;
+      backdrop-filter: blur(20px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -72,7 +73,7 @@
         text-align: center;
   
         a {
-          color: white;
+          color: black;
           font-size: 1.5rem;
           text-decoration: none;
           position: relative;

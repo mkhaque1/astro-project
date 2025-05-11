@@ -5,14 +5,17 @@ import MobileHeader from './MobileHeader.svelte';
 
 <header class="main-header">
   <div class="nav-container">
-    <a href="/" class="logo"><img src="/images/logo.svg" alt="logo pyonet" /></a
-    >
+    <div>
+      <a href="/" class="logo"
+        ><img src="/images/logo.svg" alt="logo pyonet" /></a
+      >
+    </div>
+
     <nav class="desktop-nav">
       <a href="/">Home</a>
       <a href="/about">About</a>
       <a href="/service">Services</a>
       <a href="/">Portfolio</a>
-      <a href="/contact">Contact</a>
     </nav>
     <div class="desktop-btn">
       <Button title="Contact" />
@@ -39,7 +42,6 @@ import MobileHeader from './MobileHeader.svelte';
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1200px;
       margin: auto;
     }
     .desktop-btn {

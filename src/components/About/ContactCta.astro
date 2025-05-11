@@ -1,8 +1,9 @@
 ---
-
+import BlurEffect from '../BlurEffect.astro';
 ---
 
 <section class="contact-cta">
+  <BlurEffect />
   <div class="cta-box">
     <h2>Ready to work together?</h2>
     <p>
@@ -10,7 +11,7 @@
       with us today.
     </p>
 
-    <a class="cta-button" href="/contavt">Get in touch</a>
+    <a class="cta-button" href="/contact">Get in touch</a>
   </div>
 </section>
 
@@ -19,25 +20,33 @@
     background-color: #ff944d;
   }
   .contact-cta {
-    background: linear-gradient(
-      180deg,
-      rgba(30, 30, 40, 0.9),
-      rgba(50, 50, 70, 0.9)
-    );
     padding: 5rem 2rem;
     text-align: center;
     color: white;
-    backdrop-filter: blur(12px);
-
+    position: relative;
     .cta-box {
+      position: relative;
       max-width: 700px;
       margin: auto;
       background: rgba(255, 255, 255, 0.05);
       padding: 3rem;
-      border-radius: 1rem;
+      border-radius: 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: background 0.4s ease;
-
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 1.5rem;
+        padding: 2px;
+        background: linear-gradient(135deg, #5e17ed, #f06056);
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
       &:hover {
         background: linear-gradient(
           145deg,

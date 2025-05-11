@@ -26,22 +26,144 @@ import Layout from '../layouts/Layout.astro';
     <section class="services__grid">
       {
         [
-          'Web Development',
-          'Mobile App Development',
-          'UI/UX Design',
-          'Digital Marketing',
-          'SEO Optimization',
-          'Content Creation',
-          'Branding',
-          'Consulting',
-          'Support & Maintenance',
-          'eCommerce Solutions',
-          'SaaS Development',
-        ].map((service) => <div class="service-item glass-card">{service}</div>)
+          {
+            title: 'Web Development',
+            description:
+              'Custom web solutions tailored to your business needs with modern technologies and responsive design.',
+          },
+          {
+            title: 'Mobile App Development',
+            description:
+              'Native and cross-platform mobile applications for iOS and Android platforms.',
+          },
+          {
+            title: 'UI/UX Design',
+            description:
+              'Beautiful and intuitive user interfaces that enhance user experience and engagement.',
+          },
+          {
+            title: 'Digital Marketing',
+            description:
+              'Comprehensive digital marketing strategies to grow your online presence.',
+          },
+          {
+            title: 'SEO Optimization',
+            description:
+              'Improve your search engine rankings and drive organic traffic to your website.',
+          },
+          {
+            title: 'Content Creation',
+            description:
+              'High-quality content that resonates with your audience and boosts conversions.',
+          },
+          {
+            title: 'Branding',
+            description:
+              'Create a strong brand identity that stands out in the competitive market.',
+          },
+          {
+            title: 'Consulting',
+            description:
+              'Expert advice to help you make informed decisions about your digital strategy.',
+          },
+          {
+            title: 'Support & Maintenance',
+            description:
+              'Ongoing support and maintenance to keep your digital products running smoothly.',
+          },
+          {
+            title: 'eCommerce Solutions',
+            description:
+              'Powerful online stores with seamless checkout and payment integrations.',
+          },
+          {
+            title: 'SaaS Development',
+            description:
+              'Scalable software-as-a-service solutions for your business needs.',
+          },
+        ].map((service) => (
+          <div
+            class="service-item glass-card"
+            data-service={JSON.stringify(service)}
+          >
+            {service.title}
+          </div>
+        ))
       }
     </section>
+
+    {/* Popup Modal */}
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-content">
+        <button class="close-btn" id="closeBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <a href="/contact" class="cta-button">Get Started</a>
+      </div>
+    </div>
   </main>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get modal elements
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Get all service items
+    const serviceItems = document.querySelectorAll('.service-item');
+
+    // Add click event to each service item
+    serviceItems.forEach((item) => {
+      item.addEventListener('click', function () {
+        const serviceData = JSON.parse(this.getAttribute('data-service'));
+        modalTitle.textContent = serviceData.title;
+        modalDescription.textContent = serviceData.description;
+        modalOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+      });
+    });
+
+    // Close modal when clicking close button
+    closeBtn.addEventListener('click', function () {
+      modalOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close modal when clicking outside of modal content
+    modalOverlay.addEventListener('click', function (e) {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+</script>
 
 <style lang="scss">
   .services {
@@ -51,12 +173,13 @@ import Layout from '../layouts/Layout.astro';
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    position: relative;
 
     .services__intro {
       text-align: center;
       padding: 2rem;
       border-radius: 1.5rem;
-
+      z-index: 2;
       h1 {
         font-size: 2.8rem;
         background: linear-gradient(135deg, #5e17ed, #f06056);
@@ -72,9 +195,13 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .box__image {
-      position: absolute;
+      position: fixed;
       top: 30%;
       left: 10%;
+      @media (max-width: 768px) {
+        top: 50%;
+        left: 0%;
+      }
       img {
         width: 100%;
         max-width: 300px;
@@ -85,6 +212,7 @@ import Layout from '../layouts/Layout.astro';
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
+      z-index: 2;
 
       .service-item {
         padding: 1.5rem;
@@ -100,6 +228,115 @@ import Layout from '../layouts/Layout.astro';
           background: rgba(0, 255, 255, 0.07);
         }
       }
+    }
+  }
+
+  // Modal Styles
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+    width: 90%;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid transparent;
+    animation: fadeIn 0.3s ease;
+    @media (max-width: 768px) {
+      text-align: center;
+      width: 80%;
+    }
+
+    // Gradient border effect
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1.5rem;
+      padding: 2px;
+      background: linear-gradient(135deg, #5e17ed, #f06056);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #5e17ed, #f06056);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      padding: 0.5rem;
+      transition: 0.3s ease;
+
+      &:hover {
+        color: #fff;
+        transform: rotate(90deg);
+      }
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(135deg, #5e17ed, #f06056);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -128,5 +365,19 @@ import Layout from '../layouts/Layout.astro';
     left: 0;
     bottom: 0;
     z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .modal-content {
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
   }
 </style>

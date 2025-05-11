@@ -1,8 +1,9 @@
 ---
-
+import BlurEffect from '../BlurEffect.astro';
 ---
 
 <section class="mission-vision">
+  <BlurEffect />
   <div class="wrapper">
     <div class="box">
       <h2>Our Mission</h2>
@@ -23,12 +24,7 @@
 
 <style lang="scss">
   .mission-vision {
-    background: linear-gradient(
-      145deg,
-      rgba(10, 10, 25, 0.8),
-      rgba(40, 40, 60, 0.8)
-    );
-    backdrop-filter: blur(20px);
+    position: relative;
     padding: 5rem 2rem;
     color: white;
 

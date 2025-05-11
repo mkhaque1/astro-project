@@ -1,0 +1,46 @@
+---
+export let className = ''; // Allow custom class names
+export let gradient1 = 'linear-gradient(135deg, #5e17ed, #f06056)'; // Default gradient for blur-effect1
+export let gradient2 = 'linear-gradient(135deg, #ff944d, #ff4d4d)'; // Default gradient for blur-effect2
+export let size1 = '200px'; // Default size for blur-effect1
+export let size2 = '150px'; // Default size for blur-effect2
+export let blurAmount = '120px'; // Default blur amount
+
+interface Props {
+  className?: string;
+  gradient1?: string;
+  gradient2?: string;
+  size1?: string;
+  size2?: string;
+  blurAmount?: string;
+}
+---
+
+<div
+  class={`blur-effect1 ${className}`}
+  style={`background: ${gradient1}; width: ${size1}; height: ${size1}; filter: blur(${blurAmount});`}
+>
+</div>
+<div
+  class={`blur-effect2 ${className}`}
+  style={`background: ${gradient2}; width: ${size2}; height: ${size2}; filter: blur(${blurAmount});`}
+>
+</div>
+
+<style>
+  .blur-effect1,
+  .blur-effect2 {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .blur-effect1 {
+    top: 10px;
+    left: 0;
+  }
+
+  .blur-effect2 {
+    bottom: 0;
+    right: 0;
+  }
+</style>

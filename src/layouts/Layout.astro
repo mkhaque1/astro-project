@@ -1,7 +1,8 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import '../layouts/layout.scss';
+import CookieBanner from "../components/CookieBanner.svelte";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../layouts/layout.scss";
 
 interface Props {
   title: string;
@@ -29,6 +30,7 @@ const { title } = Astro.props;
   <body class="container">
     <Header />
     <slot />
+    <CookieBanner client:load />
     <Footer />
   </body>
 </html>

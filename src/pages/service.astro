@@ -1,6 +1,6 @@
 ---
 // src/pages/services.astro
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Our Services">
@@ -27,59 +27,59 @@ import Layout from '../layouts/Layout.astro';
       {
         [
           {
-            title: 'Web Development',
+            title: "Web Development",
             description:
-              'Custom web solutions tailored to your business needs with modern technologies and responsive design.',
+              "Custom web solutions tailored to your business needs with modern technologies and responsive design.",
           },
           {
-            title: 'Mobile App Development',
+            title: "Mobile App Development",
             description:
-              'Native and cross-platform mobile applications for iOS and Android platforms.',
+              "Native and cross-platform mobile applications for iOS and Android platforms.",
           },
           {
-            title: 'UI/UX Design',
+            title: "UI/UX Design",
             description:
-              'Beautiful and intuitive user interfaces that enhance user experience and engagement.',
+              "Beautiful and intuitive user interfaces that enhance user experience and engagement.",
           },
           {
-            title: 'Digital Marketing',
+            title: "Digital Marketing",
             description:
-              'Comprehensive digital marketing strategies to grow your online presence.',
+              "Comprehensive digital marketing strategies to grow your online presence.",
           },
           {
-            title: 'SEO Optimization',
+            title: "SEO Optimization",
             description:
-              'Improve your search engine rankings and drive organic traffic to your website.',
+              "Improve your search engine rankings and drive organic traffic to your website.",
           },
           {
-            title: 'Content Creation',
+            title: "Content Creation",
             description:
-              'High-quality content that resonates with your audience and boosts conversions.',
+              "High-quality content that resonates with your audience and boosts conversions.",
           },
           {
-            title: 'Branding',
+            title: "Branding",
             description:
-              'Create a strong brand identity that stands out in the competitive market.',
+              "Create a strong brand identity that stands out in the competitive market.",
           },
           {
-            title: 'Consulting',
+            title: "Consulting",
             description:
-              'Expert advice to help you make informed decisions about your digital strategy.',
+              "Expert advice to help you make informed decisions about your digital strategy.",
           },
           {
-            title: 'Support & Maintenance',
+            title: "Support & Maintenance",
             description:
-              'Ongoing support and maintenance to keep your digital products running smoothly.',
+              "Ongoing support and maintenance to keep your digital products running smoothly.",
           },
           {
-            title: 'eCommerce Solutions',
+            title: "eCommerce Solutions",
             description:
-              'Powerful online stores with seamless checkout and payment integrations.',
+              "Powerful online stores with seamless checkout and payment integrations.",
           },
           {
-            title: 'SaaS Development',
+            title: "SaaS Development",
             description:
-              'Scalable software-as-a-service solutions for your business needs.',
+              "Scalable software-as-a-service solutions for your business needs.",
           },
         ].map((service) => (
           <div
@@ -120,46 +120,46 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener("DOMContentLoaded", function () {
     // Get modal elements
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const closeBtn = document.getElementById('closeBtn');
+    const modalOverlay = document.getElementById("modalOverlay");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const closeBtn = document.getElementById("closeBtn");
 
     // Get all service items
-    const serviceItems = document.querySelectorAll('.service-item');
+    const serviceItems = document.querySelectorAll(".service-item");
 
     // Add click event to each service item
     serviceItems.forEach((item) => {
-      item.addEventListener('click', function () {
-        const serviceData = JSON.parse(this.getAttribute('data-service'));
+      item.addEventListener("click", function () {
+        const serviceData = JSON.parse(this.getAttribute("data-service"));
         modalTitle.textContent = serviceData.title;
         modalDescription.textContent = serviceData.description;
-        modalOverlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        modalOverlay.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
       });
     });
 
     // Close modal when clicking close button
-    closeBtn.addEventListener('click', function () {
-      modalOverlay.style.display = 'none';
-      document.body.style.overflow = 'auto';
+    closeBtn.addEventListener("click", function () {
+      modalOverlay.style.display = "none";
+      document.body.style.overflow = "auto";
     });
 
     // Close modal when clicking outside of modal content
-    modalOverlay.addEventListener('click', function (e) {
+    modalOverlay.addEventListener("click", function (e) {
       if (e.target === modalOverlay) {
-        modalOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
+        modalOverlay.style.display = "none";
+        document.body.style.overflow = "auto";
       }
     });
 
     // Close modal with Escape key
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
-        modalOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modalOverlay.style.display === "flex") {
+        modalOverlay.style.display = "none";
+        document.body.style.overflow = "auto";
       }
     });
   });
@@ -264,7 +264,7 @@ import Layout from '../layouts/Layout.astro';
 
     // Gradient border effect
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       border-radius: 1.5rem;

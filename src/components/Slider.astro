@@ -1,20 +1,20 @@
 ---
-import Button from './Button.svelte';
+import Button from "./Button.svelte";
 
 // Slider.astro
 ---
 
 <script>
-  if (typeof window !== 'undefined') {
-    const script = document.createElement('script');
+  if (typeof window !== "undefined") {
+    const script = document.createElement("script");
     script.src =
-      'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js';
+      "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js";
     script.onload = () => {
-      const slickScript = document.createElement('script');
+      const slickScript = document.createElement("script");
       slickScript.src =
-        'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js';
+        "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js";
       slickScript.onload = () => {
-        $('.slider').slick({
+        $(".slider").slick({
           slidesToShow: 4,
           slidesToScroll: 1,
           autoplay: false,
@@ -24,7 +24,7 @@ import Button from './Button.svelte';
 
         // Reverse the autoplay direction
         setInterval(function () {
-          $('.slider').slick('slickPrev'); // Move to the previous slide
+          $(".slider").slick("slickPrev"); // Move to the previous slide
         }, 2000);
       };
       document.body.appendChild(slickScript);
@@ -78,7 +78,7 @@ import Button from './Button.svelte';
     width: 50%;
   }
   .slider:after {
-    content: '';
+    content: "";
     display: block;
     height: 100%;
     width: 30%;

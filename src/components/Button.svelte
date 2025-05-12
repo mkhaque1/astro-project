@@ -1,12 +1,12 @@
 <script lang="ts">
-    import "/public/Vector (4).svg";
-    import FaLongArrowAltRight from 'svelte-icons/fa/FaLongArrowAltRight.svelte';
-    export let title;
-    export let href = "";
-    export let className = ""; // Allow passing custom class
+  import "/public/Vector (4).svg";
+  import FaLongArrowAltRight from "svelte-icons/fa/FaLongArrowAltRight.svelte";
+  export let title;
+  export let href = "";
+  export let className = ""; // Allow passing custom class
 </script>
 
-<a href={href} class="button {className}">
+<a {href} class="button {className}">
   {title}
   <span class="icon"><FaLongArrowAltRight /></span>
 </a>

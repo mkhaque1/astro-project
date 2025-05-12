@@ -94,14 +94,26 @@
         </div>
         <div class="modal__option">
           <label>
+            <div class="modal-text">
+              <strong>Marketing & Analytics</strong>
+              <p>
+                Allow us to collect data to improve user experience and show
+                relevant ads and analytics insights.
+              </p>
+            </div>
             <input type="checkbox" bind:checked={marketing} />
-            Marketing & Analytics
           </label>
         </div>
         <div class="modal__option">
           <label>
+            <div class="modal-text">
+              <strong>Preferences</strong>
+              <p>
+                Enable features like language selection, video playback
+                settings, and user interface customization.
+              </p>
+            </div>
             <input type="checkbox" bind:checked={preferences} />
-            Preferences
           </label>
         </div>
       </div>
@@ -238,6 +250,23 @@
     padding: 0.7rem 1rem;
     gap: 1rem;
     font-size: 0.97rem;
+    label {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      align-items: center;
+      justify-content: space-between;
+
+      .modal-text {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+    }
   }
   .modal__switch {
     font-weight: bold;

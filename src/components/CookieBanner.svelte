@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import "../layouts/layout.scss";
 
   let showBanner = false;
   let showModal = false;
@@ -131,6 +132,7 @@
 {/if}
 
 <style lang="scss">
+  @import "../layouts/layout.scss";
   .cookie-banner {
     position: fixed;
     display: flex;
@@ -168,11 +170,11 @@
     border: none;
     cursor: pointer;
     &.cookie-banner__accept {
-      background-color: #4caf50;
+      background-color: var(--accent-green);
       color: white;
     }
     &.cookie-banner__settings {
-      background-color: #ef3d02;
+      background-color: var(--accent-blue);
       color: #fff;
     }
   }
@@ -211,16 +213,7 @@
     flex-direction: column;
     gap: 1.2rem;
     animation: springIn 0.7s cubic-bezier(0.22, 1.61, 0.36, 1) both;
-    &::before {
-      content: "";
-      position: absolute;
-      inset: -3px;
-      z-index: -1;
-      border-radius: inherit;
-      background: linear-gradient(135deg, #ff944d, #5e17ed, #ff4d4d);
-      filter: blur(1px);
-      opacity: 1;
-    }
+    @include gradient-border();
   }
   @keyframes springIn {
     0% {

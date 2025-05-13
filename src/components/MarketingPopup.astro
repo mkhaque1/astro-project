@@ -1,0 +1,161 @@
+---
+// filepath: /Users/mmkhairulhaque/Desktop/astro-project/src/components/MarketingPopup.astro
+// No imports needed
+---
+
+<style lang="scss">
+  @import "../layouts/layout.scss";
+  .marketing-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 20, 40, 0.35);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .marketing-popup {
+    position: relative;
+    background: rgba(30, 41, 59, 0.85);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    padding: 2rem 2.2rem;
+    min-width: 300px;
+    max-width: 20vw;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    animation: popupIn 0.6s cubic-bezier(0.22, 1.61, 0.36, 1) both;
+    border: 2.5px solid transparent;
+    background-clip: padding-box;
+    @include gradient-border;
+  }
+  @keyframes popupIn {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .marketing-popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .marketing-popup-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+  }
+  .marketing-popup-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6, #22d3ee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .marketing-popup-content {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .marketing-popup-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6, #22d3ee);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(80, 80, 120, 0.12);
+    transition: transform 0.15s;
+  }
+  .marketing-popup-link:hover {
+    transform: scale(1.04);
+  }
+  @media (max-width: 600px) {
+    .marketing-popup {
+      padding: 1.2rem 0.7rem;
+      min-width: unset;
+      max-width: 98vw;
+    }
+    .marketing-popup-title {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<div
+  id="marketing-popup-overlay"
+  class="marketing-popup-overlay"
+  style="display:none;"
+>
+  <div class="marketing-popup">
+    <button
+      class="marketing-popup-close"
+      aria-label="Close popup"
+      onclick="document.getElementById('marketing-popup-overlay').style.display='none'"
+    >
+      &times;
+    </button>
+    <div class="marketing-popup-title">🚀 Introducing CareerPrep.AI</div>
+    <div class="marketing-popup-content">
+      <strong>CareerPrep.AI</strong> is your all-in-one toolkit for job seekers!
+      Instantly create AI-powered cover letters, build your CV, enhance your LinkedIn
+      profile, and prep for interviews—all in one place.<br /><br />
+      <ul style="margin:0 0 0 1.2em;padding:0;">
+        <li>✨ AI Cover Letter Generator</li>
+        <li>📄 CV Builder</li>
+        <li>🔗 LinkedIn Enhancement Tools</li>
+        <li>🎤 Interview Prep Tools</li>
+      </ul>
+    </div>
+    <a
+      class="marketing-popup-link"
+      href="https://jobgenius-xi.vercel.app"
+      target="_blank"
+      rel="noopener"
+    >
+      Try CareerPrep.AI Now
+    </a>
+  </div>
+</div>
+
+<script>
+  // Only show if not dismissed in this session
+  if (!sessionStorage.getItem("marketing-popup-dismissed")) {
+    setTimeout(() => {
+      const popup = document.getElementById("marketing-popup-overlay");
+      if (popup) popup.style.display = "flex";
+    }, 5000);
+  }
+
+  // Attach close handler to set sessionStorage
+  window.addEventListener("DOMContentLoaded", () => {
+    const closeBtn = document.querySelector(".marketing-popup-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        sessionStorage.setItem("marketing-popup-dismissed", "1");
+      });
+    }
+  });
+</script>

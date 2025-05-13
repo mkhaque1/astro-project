@@ -2,6 +2,7 @@
 import CookieBanner from "../components/CookieBanner.svelte";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import MarketingPopup from "../components/MarketingPopup.astro";
 import "../layouts/layout.scss";
 
 interface Props {
@@ -31,6 +32,7 @@ const { title } = Astro.props;
     <Header />
     <slot />
     <CookieBanner client:load />
+    <MarketingPopup />
     <Footer />
   </body>
 </html>

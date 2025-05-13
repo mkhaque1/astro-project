@@ -25,8 +25,9 @@
 
     p,
     a {
+      margin-top: 20px;
       font-weight: 300;
-      color: aliceblue;
+      color: #fff;
       opacity: 0; // Initially invisible
       transform: translateY(10px); // Slightly moved down
       transition:
@@ -35,7 +36,7 @@
     }
 
     a {
-      color: antiquewhite;
+      color: var(--accent-light);
     }
   }
 
@@ -61,12 +62,12 @@
   }
   &:hover .icon,
   &:hover .content h2 {
-    color: rgb(var(--accent-light));
+    color: var(--accent-blue);
   }
 
   .icon {
     width: 30px;
-    color: rgb(var(--accent-light));
+    color: var(--accent-blue);
   }
 }
 

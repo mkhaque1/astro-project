@@ -1,5 +1,6 @@
 ---
 // src/pages/services.astro
+import ProcessFlow from "../components/ProcessFlow.svelte";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -116,6 +117,9 @@ import Layout from "../layouts/Layout.astro";
         <a href="/contact" class="cta-button">Get Started</a>
       </div>
     </div>
+    <section>
+      <ProcessFlow client:load />
+    </section>
   </main>
 </Layout>
 
@@ -167,13 +171,27 @@ import Layout from "../layouts/Layout.astro";
 
 <style lang="scss">
   .services {
-    padding: 4rem 2rem;
+    padding: 4rem 0rem;
     color: #fff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 3rem;
     position: relative;
+
+    .box__image {
+      position: absolute;
+      top: 10%;
+      left: 0;
+      @media (max-width: 768px) {
+        top: 50%;
+        left: 0%;
+      }
+      img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
 
     .services__intro {
       text-align: center;
@@ -191,20 +209,6 @@ import Layout from "../layouts/Layout.astro";
         color: rgba(255, 255, 255, 0.8);
         font-size: 1.2rem;
         margin-top: 1rem;
-      }
-    }
-
-    .box__image {
-      position: fixed;
-      top: 30%;
-      left: 10%;
-      @media (max-width: 768px) {
-        top: 50%;
-        left: 0%;
-      }
-      img {
-        width: 100%;
-        max-width: 300px;
       }
     }
 

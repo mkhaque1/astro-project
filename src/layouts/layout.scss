@@ -1,14 +1,22 @@
 :root {
-  --accent: 222, 225, 208, 0.5;
-  --accent-light: 50, 220, 255;
-  --accent-dark: 49, 10, 101;
-  --accent-blue: 306FEA;
+  --accent: #2563eb; // Modern blue
+  --accent-light: #60a5fa; // Light blue
+  --accent-dark: #1e293b; // Dark slate
+  --accent-blue: #6366f1; // Indigo
+  --accent-cyan: #22d3ee; // Cyan
+  --accent-pink: #f472b6; // Pink
+  --accent-yellow: #fde68a; // Yellow
+  --accent-green: #4ade80; // Green
   --accent-gradient: linear-gradient(
     45deg,
-    rgb(var(--accent)),
-    rgb(var(--accent-light)) 30%,
-    rgb(0, 175, 224) 30%
+    var(--accent),
+    var(--accent-blue) 30%,
+    var(--accent-green) 60%,
+    var(--accent-pink) 90%
   );
+  --background: #0f172a; // Deep navy
+  --foreground: #f1f5f9; // Light gray
+  --border: #334155; // Border gray
 }
 
 html {
@@ -66,5 +74,31 @@ a {
     width: 100%;
     padding: 0px 20px;
     margin: 0 auto;
+  }
+}
+
+@mixin gradient-border(
+  $radius: 1.5rem,
+  $padding: 2px,
+  $gradient: linear-gradient(135deg, #5e17ed, #f06056)
+) {
+  position: relative;
+  border-radius: $radius;
+  border: 2.5px solid transparent;
+  background-clip: padding-box;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: $radius;
+    padding: $padding;
+    background: $gradient;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
 }

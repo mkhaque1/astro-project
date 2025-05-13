@@ -10,19 +10,18 @@ import Sections from "../layouts/Sections.astro";
 import LogoSlider from "../components/LogoSlider.astro";
 ---
 
-<Layout title="About Pyonet Agency">
+<Layout title="Pyonet Agency">
   <main class="about-page">
     <Hero />
     <Tags />
+    <MissionVision />
+    <div class="blur"></div>
+    <Sections>
+      <LogoSlider />
+    </Sections>
+    <TeamSection />
+    <ContactCta />
   </main>
-
-  <MissionVision />
-  <div class="blur"></div>
-  <Sections>
-    <LogoSlider />
-  </Sections>
-  <TeamSection />
-  <ContactCta />
 </Layout>
 
 <style lang="scss">

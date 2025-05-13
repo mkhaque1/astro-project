@@ -4,7 +4,12 @@
   position: relative;
 }
 .leftContent {
-  text-align: right;
+  width: 100%;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
   img {
     width: 100%;
     max-width: 250px;
@@ -48,9 +53,15 @@
   z-index: 1;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .hero {
     flex-wrap: wrap;
+  }
+  .rightContent {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
   .rightContent p {
     font-size: 16px;

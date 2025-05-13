@@ -13,18 +13,16 @@ import LogoSlider from "../components/LogoSlider.astro";
 <Layout title="About Pyonet Agency">
   <main class="about-page">
     <Hero />
-    <Sections>
-      <Tags />
-    </Sections>
-
-    <MissionVision />
-    <div class="blur"></div>
-    <Sections>
-      <LogoSlider />
-    </Sections>
-    <TeamSection />
-    <ContactCta />
+    <Tags />
   </main>
+
+  <MissionVision />
+  <div class="blur"></div>
+  <Sections>
+    <LogoSlider />
+  </Sections>
+  <TeamSection />
+  <ContactCta />
 </Layout>
 
 <style lang="scss">
@@ -36,6 +34,9 @@ import LogoSlider from "../components/LogoSlider.astro";
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
 
     .blur {
       position: absolute;

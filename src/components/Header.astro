@@ -6,20 +6,32 @@ import MobileHeader from "./MobileHeader.svelte";
 <header class="main-header">
   <div class="nav-container">
     <div>
-      <a href="/" class="logo"
-        ><img src="/images/logo.svg" alt="logo pyonet" /></a
-      >
+      <a href="/" class="logo">
+        <img src="/images/logo.svg" alt="logo pyonet" />
+      </a>
     </div>
 
     <nav class="desktop-nav">
       <a href="/">Home</a>
       <a href="/about">About</a>
       <a href="/service">Services</a>
-      <a href="/">Portfolio</a>
+
+      <!-- Portfolio Dropdown -->
+      <div class="nav-item-with-dropdown">
+        <span class="has-submenu">
+          Portfolio <span class="arrow">▾</span>
+        </span>
+        <div class="dropdown-menu">
+          <a href="/app" class="dropdown-item">Developed Apps</a>
+          <!-- Add more submenu items here -->
+        </div>
+      </div>
     </nav>
+
     <div class="desktop-btn">
       <Button href="/contact" title="Contact" />
     </div>
+
     <div class="mobile-toggle">
       <MobileHeader client:load />
     </div>
@@ -43,16 +55,11 @@ import MobileHeader from "./MobileHeader.svelte";
       align-items: center;
       justify-content: space-between;
       margin: auto;
-    }
-    .desktop-btn {
-      @media (max-width: 768px) {
-        display: none;
-      }
+      width: 100%;
+      max-width: 1200px;
     }
 
     .logo {
-      font-size: 12px;
-      width: 100%;
       img {
         width: 50px;
       }
@@ -60,14 +67,18 @@ import MobileHeader from "./MobileHeader.svelte";
 
     .desktop-nav {
       display: flex;
+      align-items: center;
       gap: 2rem;
+      position: relative;
 
-      a {
+      a,
+      .has-submenu {
         position: relative;
         color: white;
         text-decoration: none;
         font-weight: 500;
         transition: color 0.3s ease;
+        cursor: pointer;
 
         &::after {
           content: "";
@@ -83,6 +94,63 @@ import MobileHeader from "./MobileHeader.svelte";
         &:hover::after {
           width: 100%;
         }
+      }
+
+      .nav-item-with-dropdown {
+        position: relative;
+
+        &:hover .dropdown-menu {
+          display: flex;
+        }
+
+        &:hover .arrow {
+          transform: rotate(180deg);
+        }
+
+        .has-submenu {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+
+          .arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+          }
+        }
+
+        .dropdown-menu {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          margin-top: 0.5rem;
+          background: rgba(30, 41, 59, 0.95);
+          padding: 0.75rem 1rem;
+          border-radius: 12px;
+          min-width: 200px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+          z-index: 1001;
+
+          .dropdown-item {
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 400;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.08);
+            }
+          }
+        }
+      }
+    }
+
+    .desktop-btn {
+      @media (max-width: 768px) {
+        display: none;
       }
     }
 

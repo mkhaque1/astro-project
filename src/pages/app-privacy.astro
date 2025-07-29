@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/Layout.astro";
+const lastUpdated = "July 29, 2025";
+---
+
+<Layout title="Privacy Policy - Pyonet Apps">
+  <main class="privacy-container">
+    <section class="privacy-content">
+      <h1>Privacy Policy – Pyonet Apps</h1>
+      <p>
+        <strong>Pyonet.com</strong> (“we,” “our,” or “us”) is committed to protecting
+        your privacy. This Privacy Policy explains how we collect, use, and safeguard
+        your data when you use our mobile applications developed by Pyonet.com (the
+        “App” or “Apps”).
+      </p>
+
+      <h2>1. Who We Are</h2>
+      <p>
+        Pyonet.com is an online-based software agency that builds modern,
+        helpful apps like Azaan App and Split-Mate. Our goal is to improve daily
+        life through clean, user-focused technology.
+      </p>
+
+      <h2>2. Information We Collect</h2>
+      <ul>
+        <li>
+          <strong>Personal Information:</strong> Name, email, phone number, profile
+          info (if applicable)
+        </li>
+        <li>
+          <strong>Device & Usage:</strong> Device type, app interactions, crash reports
+        </li>
+        <li>
+          <strong>Optional Info:</strong> User content like expense notes, preferences
+          (only if you submit it)
+        </li>
+      </ul>
+
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To deliver and improve app functionality</li>
+        <li>Send notifications or updates (when enabled)</li>
+        <li>Fix bugs and analyze usage</li>
+        <li>Comply with laws and protect against misuse</li>
+      </ul>
+
+      <h2>4. Data Sharing and Disclosure</h2>
+      <p>We do not sell your personal data. We may share data:</p>
+      <ul>
+        <li>With trusted partners (hosting, analytics)</li>
+        <li>With legal authorities if required</li>
+        <li>With other users only if you choose to share content</li>
+      </ul>
+
+      <h2>5. Children’s Privacy</h2>
+      <p>
+        Our apps are not intended for children under 13. If we learn that data
+        has been collected from a child without parental consent, we will delete
+        it.
+      </p>
+
+      <h2>6. Data Security and Retention</h2>
+      <p>
+        We use secure servers and encryption to protect your data. Information
+        is kept only as long as necessary to deliver our services.
+      </p>
+
+      <h2>7. Your Rights and Choices</h2>
+      <ul>
+        <li>Access or update your data</li>
+        <li>Request deletion of your account or information</li>
+        <li>Control notifications and sharing settings</li>
+      </ul>
+      <p>
+        To contact us, email: <a href="mailto:privacy@pyonet.com"
+          >privacy@pyonet.com</a
+        >
+      </p>
+
+      <h2>8. Third-Party Services</h2>
+      <p>
+        We may use services like Google Analytics, Firebase, or AdMob which
+        collect usage data anonymously. External links or content may follow
+        different privacy practices.
+      </p>
+
+      <h2>9. Changes to This Policy</h2>
+      <p>
+        We may update this policy periodically. The latest version will always
+        be available here.
+      </p>
+
+      <h2>10. Contact Us</h2>
+      <p>
+        <strong>Pyonet.com</strong><br />
+        Email: <a href="mailto:info@pyonet.com">info@pyonet.com</a><br />
+        Website: <a href="https://pyonet.com" target="_blank"
+          >https://pyonet.com</a
+        >
+      </p>
+
+      <p class="last-updated"><em>Last Updated: {lastUpdated}</em></p>
+    </section>
+  </main>
+
+  <style>
+    .privacy-container {
+      padding: 2rem 1rem;
+
+      color: var(--foreground, #f1f5f9);
+      min-height: 100vh;
+    }
+
+    .privacy-content {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(30, 41, 59, 0.7);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .privacy-content h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .privacy-content h2 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      color: #facc15;
+    }
+
+    .privacy-content p,
+    .privacy-content ul {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-top: 0.6rem;
+    }
+
+    .privacy-content ul {
+      padding-left: 1.2rem;
+    }
+
+    .privacy-content a {
+      color: #38bdf8;
+      text-decoration: underline;
+    }
+
+    .last-updated {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 600px) {
+      .privacy-content {
+        padding: 1.5rem 1rem;
+      }
+
+      .privacy-content h1 {
+        font-size: 1.5rem;
+      }
+
+      .privacy-content h2 {
+        font-size: 1.1rem;
+      }
+
+      .privacy-content p,
+      .privacy-content ul {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</Layout>

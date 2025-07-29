@@ -1,0 +1,349 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Accordion from "../components/Accordion.astro";
+
+const faqItems = [
+  {
+    question: "Are the apps free to use?",
+    answer:
+      "Yes, both Azaan App and Split-mate are free to download and use. Premium features may be introduced later.",
+  },
+  {
+    question: "Will the apps be available on iOS?",
+    answer:
+      "Yes, iOS versions are under development and will be released soon.",
+  },
+  {
+    question: "Do the apps work offline?",
+    answer:
+      "Some features like prayer times and expense tracking work offline. Internet is needed for syncing or updates.",
+  },
+];
+---
+
+<Layout title="Our Apps">
+  <main class="landing-main">
+    <section class="hero">
+      <h1 class="hero-title">Discover Our Mobile Apps</h1>
+      <p class="hero-subtitle">
+        We build modern, impactful apps for everyday life. Explore our latest
+        releases!
+      </p>
+    </section>
+
+    <section class="apps-showcase">
+      <div class="app-card">
+        <img
+          src="/assets/azaan-app.png"
+          alt="Azaan App Logo"
+          class="app-logo"
+        />
+        <h2>Azaan-app</h2>
+        <p>
+          Your daily prayer companion. Get accurate prayer times, Qibla
+          direction, and Islamic calendar in one beautiful app.
+        </p>
+        <div class="app-links">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.azaan.app"
+            target="_blank"
+            class="store-btn google"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24"
+              ><path
+                fill="#fff"
+                d="M21.805 10.023l-7.52-4.348-2.01 2.01 3.99 3.99zm-8.53-4.348l-7.52 4.348 3.99 3.99 2.01-2.01zm-7.52 4.348v4.652l3.99-1.99zm7.52 4.652l2.01-2.01-3.99-3.99zm2.01-2.01l7.52 4.348-3.99 3.99zm-2.01 2.01l-7.52 4.348 3.99 3.99zm7.52-4.348v4.652l-3.99-1.99z"
+              ></path></svg
+            >
+            Play Store
+          </a>
+          <span class="coming-soon ios">iOS Coming Soon</span>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <img
+          src="/assets/split-mate.png"
+          alt="Split Mate Logo"
+          class="app-logo"
+        />
+        <h2>Split-mate</h2>
+        <p>
+          The easiest way to split bills and expenses with friends. Track,
+          settle, and manage group payments effortlessly.
+        </p>
+        <div class="app-links">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.splitmate.app"
+            target="_blank"
+            class="store-btn google"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24"
+              ><path
+                fill="#fff"
+                d="M21.805 10.023l-7.52-4.348-2.01 2.01 3.99 3.99zm-8.53-4.348l-7.52 4.348 3.99 3.99 2.01-2.01zm-7.52 4.348v4.652l3.99-1.99zm7.52 4.652l2.01-2.01-3.99-3.99zm2.01-2.01l7.52 4.348-3.99 3.99zm-2.01 2.01l-7.52 4.348 3.99 3.99zm7.52-4.348v4.652l-3.99-1.99z"
+              ></path></svg
+            >
+            Play Store
+          </a>
+          <span class="coming-soon ios">iOS Coming Soon</span>
+        </div>
+      </div>
+    </section>
+    <section class="features">
+      <h2>Why Choose Our Apps?</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Easy to Use</h3>
+          <p>Simple, clean interfaces designed with the user in mind.</p>
+        </div>
+        <div class="feature">
+          <h3>Secure & Reliable</h3>
+          <p>
+            We prioritize your data and deliver a smooth experience every time.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Regular Updates</h3>
+          <p>New features and improvements rolled out regularly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>What Users Are Saying</h2>
+      <div class="testimonial-card">
+        <p>
+          "Azaan App has made it so easy to keep up with prayers — beautiful and
+          reliable."
+        </p>
+        <span>– Sarah K., App User</span>
+      </div>
+      <div class="testimonial-card">
+        <p>
+          "Split-mate saved our group trip. No more awkward conversations about
+          money!"
+        </p>
+        <span>– James R., Traveler</span>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <Accordion items={faqItems} />
+    </section>
+
+    <section class="cta">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to get the latest app news and launch alerts.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <style>
+    .landing-main {
+      min-height: 100vh;
+
+      color: var(--foreground, #f1f5f9);
+      padding: 0 0 3rem 0;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-bottom: 2rem;
+    }
+    .apps-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: stretch;
+      padding: 2rem 1rem;
+    }
+    .app-card {
+      background: rgba(30, 41, 59, 0.85);
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+      padding: 2rem 1.5rem;
+      min-width: 270px;
+      max-width: 350px;
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      border: 2.5px solid transparent;
+      position: relative;
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    }
+    .app-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 12px 40px rgba(80, 80, 120, 0.18);
+      border-image: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6, #22d3ee) 1;
+      border-width: 2.5px;
+      border-style: solid;
+    }
+    .app-logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: 1rem;
+      margin-bottom: 0.5rem;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(80, 80, 120, 0.1);
+    }
+    .app-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6, #22d3ee);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 0.6em 1.2em;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 2px 8px rgba(80, 80, 120, 0.12);
+      transition: transform 0.15s;
+      border: none;
+    }
+    .store-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 4px 16px rgba(80, 80, 120, 0.18);
+    }
+    .coming-soon {
+      font-size: 0.98rem;
+      color: #fde68a;
+      background: rgba(253, 230, 138, 0.08);
+      border-radius: 999px;
+      padding: 0.4em 1em;
+      font-weight: 500;
+    }
+    .features {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .feature {
+      max-width: 300px;
+      background: rgba(30, 41, 59, 0.75);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+    .testimonials {
+      padding: 3rem 1rem;
+      background: rgba(198, 104, 104, 0.05);
+      text-align: center;
+      border-radius: 10px;
+    }
+    .testimonial-card {
+      max-width: 600px;
+      margin: 1rem auto;
+      background: rgba(30, 41, 59, 0.75);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      font-style: italic;
+    }
+    .faq {
+      padding: 3rem 1rem;
+    }
+    .faq h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .faq-item {
+      max-width: 700px;
+      margin: 1rem auto;
+      background: rgba(30, 41, 59, 0.75);
+      border-radius: 1rem;
+      padding: 1.2rem;
+    }
+    .cta {
+      padding: 3rem 1rem;
+      text-align: center;
+      background: linear-gradient(to right, #22d3ee, #a78bfa);
+      color: #fff;
+      border-radius: 10px;
+    }
+    .newsletter-form {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .newsletter-form input {
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      border: none;
+      width: 250px;
+    }
+    .newsletter-form button {
+      background: #0f172a;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+    }
+    .footer {
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer .social-links {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .apps-showcase {
+        flex-direction: column;
+        align-items: center;
+      }
+      .app-card {
+        max-width: 98vw;
+        min-width: unset;
+      }
+    }
+  </style>
+</Layout>

@@ -232,9 +232,16 @@ import Layout from "../layouts/Layout.astro";
       gap: 3rem;
       margin-bottom: 5rem;
       flex-wrap: wrap;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+      }
 
       &.reverse {
         flex-direction: row-reverse;
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+        }
       }
 
       .detail-img {

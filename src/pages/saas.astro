@@ -1,0 +1,380 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="SaaS Developments">
+  <section class="saas-container">
+    <h1 class="title">🚀 SaaS Developments</h1>
+    <p class="intro">
+      Explore our cutting-edge SaaS products designed to empower professionals
+      and businesses. Click on any product to visit its website.
+    </p>
+
+    <!-- Product Showcase -->
+    <div class="product-grid">
+      <a
+        href="https://jobgenius-xi.vercel.app/"
+        target="_blank"
+        class="product-card career"
+      >
+        <h2>CareerPrep.AI</h2>
+        <p>
+          AI-powered career preparation platform for CVs, cover letters, and
+          interviews.
+        </p>
+      </a>
+      <a
+        href="https://captioncraftt.com/"
+        target="_blank"
+        class="product-card caption"
+      >
+        <h2>CaptionCraft.AI</h2>
+        <p>
+          Smart AI captions for creators—boost engagement with intelligent
+          content generation.
+        </p>
+      </a>
+      <a
+        href="https://solocrm.vercel.app/"
+        target="_blank"
+        class="product-card crm"
+      >
+        <h2>SoloCRM</h2>
+        <p>
+          Lightweight, powerful CRM built for freelancers and small businesses.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Detailed Product Sections (Alternating Layout) -->
+  <section class="product-details">
+    <!-- CareerPrep.AI -->
+    <div class="detail-row">
+      <div class="detail-img">
+        <img src="/images/careerprep.png" alt="CareerPrep.AI" />
+      </div>
+      <div class="detail-content">
+        <h2><span>CareerPrep.AI</span></h2>
+        <p>
+          CareerPrep.AI helps job seekers prepare world-class resumes, cover
+          letters, and practice interviews using AI insights. Designed for
+          international students and professionals, it saves time and improves
+          outcomes.
+        </p>
+      </div>
+    </div>
+
+    <!-- SoloCRM -->
+    <div class="detail-row">
+      <div class="detail-content">
+        <h2><span>SoloCRM</span></h2>
+        <p>
+          SoloCRM is built for freelancers and small businesses who want a
+          simple but effective way to manage clients, track projects, and
+          automate tasks—without the heavy overhead of enterprise CRMs.
+        </p>
+      </div>
+      <div class="detail-img">
+        <img src="/images/solocrm.png" alt="SoloCRM" />
+      </div>
+    </div>
+
+    <!-- CaptionCraft.AI -->
+    <div class="detail-row reverse">
+      <div class="detail-content">
+        <h2><span>CaptionCraft.AI</span></h2>
+        <p>
+          CaptionCraft.AI empowers creators with intelligent captions that
+          increase engagement across social platforms. With AI-driven
+          recommendations, you can produce viral-worthy content quickly and
+          consistently.
+        </p>
+      </div>
+      <div class="detail-img">
+        <img src="/images/caption-craft.png" alt="CaptionCraft.AI" />
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work Section -->
+  <section class="how-we-work">
+    <h2>💡 How We Work</h2>
+    <p>
+      We combine creativity, technology, and customer feedback to deliver
+      reliable SaaS products that solve real-world problems. Our workflow
+      ensures quality, scalability, and long-term value.
+    </p>
+    <div class="work-values">
+      <span>🔍 Research Driven</span>
+      <span>⚙️ Agile Development</span>
+      <span>📊 Data-First Decisions</span>
+      <span>🎯 Customer-Centric Approach</span>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process">
+    <h2>🛠️ Our Process</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>1. Discovery</h3>
+        <p>
+          Understanding client needs and researching market trends to define the
+          right solution.
+        </p>
+      </div>
+      <div class="step">
+        <h3>2. Development</h3>
+        <p>
+          Building scalable, cloud-based software with modern frameworks and
+          clean design.
+        </p>
+      </div>
+      <div class="step">
+        <h3>3. Launch</h3>
+        <p>
+          Deploying with cloud infrastructure and ensuring a seamless user
+          experience.
+        </p>
+      </div>
+      <div class="step">
+        <h3>4. Support</h3>
+        <p>
+          Providing continuous updates, 24/7 support, and feature improvements.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <h2>🚀 Ready to Transform Your Business?</h2>
+    <p>Try our SaaS products today and see how they can make a difference.</p>
+    <a href="https://careerprep.ai" target="_blank" class="cta-btn"
+      >Get Started</a
+    >
+  </section>
+</Layout>
+
+<style lang="scss">
+  .saas-container {
+    padding: 4rem 2rem;
+    text-align: center;
+
+    color: #e6f1ff;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    background: linear-gradient(90deg, #1ecbe1, #8e44ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    font-size: 1.25rem;
+    color: #cfd8dc;
+    max-width: 750px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.7;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .product-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: #fff;
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+      border-color: #1ecbe1;
+    }
+  }
+
+  .career {
+    background: linear-gradient(135deg, #0f2027, #2c5364);
+  }
+  .caption {
+    background: linear-gradient(135deg, #42275a, #734b6d);
+  }
+  .crm {
+    background: linear-gradient(135deg, #1d4350, #a43931);
+  }
+
+  /* Alternating Product Details */
+  .product-details {
+    background: #12121f;
+    padding: 5rem 2rem;
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      margin-bottom: 5rem;
+      flex-wrap: wrap;
+
+      &.reverse {
+        flex-direction: row-reverse;
+      }
+
+      .detail-img {
+        flex: 1;
+        text-align: center;
+
+        img {
+          max-width: 100%;
+          border-radius: 1rem;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .detail-content {
+        flex: 1;
+
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+
+          span {
+            background: linear-gradient(90deg, #1ecbe1, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+
+        p {
+          font-size: 1.1rem;
+          line-height: 1.7;
+          color: #cfd8dc;
+        }
+      }
+    }
+  }
+
+  .how-we-work {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: #232342;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #8e44ad;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #cfd8dc;
+    }
+
+    .work-values {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+
+      span {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        padding: 0.8rem 1.2rem;
+        border-radius: 2rem;
+        font-size: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+
+  .process {
+    padding: 4rem 2rem;
+
+    text-align: center;
+
+    h2 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: left;
+
+      .step {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        h3 {
+          color: #f1f1f1;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          color: #cfd8dc;
+        }
+      }
+    }
+  }
+
+  .cta {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #1ecbe1, #8e44ad);
+    color: #fff;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #0f0f1a;
+      color: #1ecbe1;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #fff;
+        color: #0f0f1a;
+      }
+    }
+  }
+</style>

@@ -23,6 +23,7 @@ import MobileHeader from "./MobileHeader.svelte";
         </span>
         <div class="dropdown-menu">
           <a href="/app" class="dropdown-item">Developed Apps</a>
+          <a href="/saas" class="dropdown-item">SaaS Developments</a>
           <!-- Add more submenu items here -->
         </div>
       </div>
@@ -121,12 +122,13 @@ import MobileHeader from "./MobileHeader.svelte";
         .dropdown-menu {
           display: none;
           flex-direction: column;
+          gap: 0.5rem;
           position: absolute;
           top: 100%;
           left: 0;
           margin-top: 0.5rem;
           background: rgba(30, 41, 59, 0.95);
-          padding: 0.75rem 1rem;
+          padding: 0.5rem 0;
           border-radius: 12px;
           min-width: 200px;
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
@@ -139,10 +141,6 @@ import MobileHeader from "./MobileHeader.svelte";
             padding: 0.5rem 0.75rem;
             border-radius: 6px;
             transition: background 0.2s ease;
-
-            &:hover {
-              background: rgba(255, 255, 255, 0.08);
-            }
           }
         }
       }

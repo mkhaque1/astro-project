@@ -46,12 +46,15 @@ import MobileHeader from "./MobileHeader.svelte";
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.3rem 1rem;
+    padding: 1.3rem 1rem;
     border-radius: 15px;
     background: rgba(145, 138, 138, 0.4);
     backdrop-filter: blur(10px);
     z-index: 1000;
     color: white;
+    @media (max-width: 768px) {
+      padding: 0.5em;
+    }
 
     .nav-container {
       display: flex;

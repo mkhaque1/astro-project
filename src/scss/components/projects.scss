@@ -85,7 +85,8 @@
     background: #1d1d3b;
     padding: $normal-gap; // Example of using the variable
     width: 100%; // Default width, adjust as needed
-    background: radial-gradient(
+    background:
+      radial-gradient(
         217.75% 144.07% at 217.75% 107.58%,
         rgba(127, 139, 210, 0.3) 0%,
         rgba(89, 106, 197, 0) 100%
@@ -162,7 +163,8 @@
       height: 396px;
       border-radius: 24px;
       position: relative;
-      background: url(/images/general_noise.png), url(/images/general_noise.png),
+      background:
+        url(/images/general_noise.png), url(/images/general_noise.png),
         radial-gradient(53.33% 74.69% at 50% 107.05%, #bba5f4 0%, #653ad8 100%);
       background-blend-mode: overlay, overlay, normal;
 
@@ -414,7 +416,7 @@
             /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
           #191934;
         background-blend-mode: overlay, normal, normal;
-        order-radius: 24px;
+        border-radius: 24px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -449,7 +451,8 @@
             width: 182px;
             height: 56px;
 
-            background: url(general_noise.png), url(download.png),
+            background:
+              url(general_noise.png), url(download.png),
               radial-gradient(
                 66.67% 103.95% at 50% -42.76%,
                 #bba5f4 0%,
@@ -694,7 +697,8 @@
     padding: 14px;
     gap: 14px;
 
-    background: url(/images/general_noise.png),
+    background:
+      url(/images/general_noise.png),
       radial-gradient(
         183.81% 220.09% at 18.23% -40.51%,
         #ffdaa3 0%,
@@ -716,7 +720,8 @@
     padding: 12px;
     gap: 6px;
 
-    background: url(/images/general_noise.png),
+    background:
+      url(/images/general_noise.png),
       radial-gradient(66.67% 103.95% at 50% -42.76%, #bba5f4 0%, #5f33d6 100%),
       rgba(255, 255, 255, 0.05);
     background-blend-mode: overlay, overlay, normal, normal;

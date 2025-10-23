@@ -1,0 +1,36 @@
+// --- Define Colors & Variables ---
+:root {
+  --brand-purple: #5e17ed;
+  --brand-red: #f06056;
+  --brand-pink: #ea30d4;
+  --brand-blue: #1683f8;
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+  --border-radius: 1.5rem; // 24px
+  --border-radius-sm: 1rem; // 16px
+
+  --accent: #2563eb; // Modern blue
+  --accent-light: #60a5fa; // Light blue
+  --accent-dark: #1e293b; // Dark slate
+  --accent-blue: #6366f1; // Indigo
+  --accent-cyan: #22d3ee; // Cyan
+  --accent-pink: #f472b6; // Pink
+  --accent-yellow: #fde68a; // Yellow
+  --accent-green: #4ade80; // Green
+  --accent-gradient: linear-gradient(
+    45deg,
+    var(--accent),
+    var(--accent-blue) 30%,
+    var(--accent-green) 60%,
+    var(--accent-pink) 90%
+  );
+  --background: #0f172a; // Deep navy
+  --foreground: #f1f5f9; // Light gray
+  --border: #334155; // Border gray
+}

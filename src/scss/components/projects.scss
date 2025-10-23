@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.projects.container {
+.projects.hero {
   position: relative;
   $normal-gap: 24px; // Consider using this variable if you have spacing needs
   display: flex;
@@ -24,7 +24,7 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 100%;
     box-shadow: 0px 0px 0px 24px #020915;
-    animation: rotate 300s ease-in-out;
+    animation: rotate 500s ease-in-out;
     animation-iteration-count: infinite;
     animation-fill-mode: forwards;
   }
@@ -837,7 +837,7 @@
   }
 }
 @media screen and (max-width: 1290px) {
-  .projects.container {
+  .projects.hero {
     width: 50%;
     margin: inherit;
   }
@@ -853,7 +853,7 @@
   .dropping-items {
     display: none;
   }
-  .projects.container .circle {
+  .projects.hero .circle {
     width: 200px;
     height: 200px;
     top: calc(50% - -43px);
@@ -864,18 +864,18 @@
     max-width: 100% !important;
     width: 100% !important;
   }
-  .container {
+  .hero {
     width: 90% !important;
   }
-  .projects.container .details.first > div:nth-child(3) {
+  .projects.hero .details.first > div:nth-child(3) {
     width: 100% !important;
     max-width: 100% !important;
   }
-  .projects.container .details.second > div:nth-child(1) {
+  .projects.hero .details.second > div:nth-child(1) {
     order: 2;
     width: 100%;
   }
-  .projects.container .circle {
+  .projects.hero .circle {
     top: calc(50% + 74px);
     left: calc(50% - 97px);
   }

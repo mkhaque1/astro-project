@@ -1,5 +1,7 @@
 .footer {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   background: var(--accent-dark);
   backdrop-filter: blur(20px);
   padding: 40px 20px;

@@ -34,3 +34,20 @@
   --foreground: #f1f5f9; // Light gray
   --border: #334155; // Border gray
 }
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// --- Reusable Glass Effect ---
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: var(--border-radius);
+  box-shadow: var(--glass-shadow);
+  z-index: 10;
+}

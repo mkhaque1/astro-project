@@ -1,0 +1,262 @@
+---
+// src/components/ProcessFlow.astro
+import { Icon } from "astro-icon/components";
+
+const steps = [
+  {
+    title: "Discovery",
+    description:
+      "We start by understanding your business goals, challenges, and requirements.",
+    icon: "heroicons:light-bulb",
+  },
+  {
+    title: "Planning",
+    description:
+      "We craft a tailored strategy and roadmap for your project’s success.",
+    icon: "heroicons:clipboard-document-list",
+  },
+  {
+    title: "Design",
+    description:
+      "Our designers create modern, user-centric interfaces and experiences.",
+    icon: "heroicons:paint-brush",
+  },
+  {
+    title: "Development",
+    description:
+      "Our engineers build robust, scalable solutions using the latest technologies.",
+    icon: "heroicons:code-bracket",
+  },
+  {
+    title: "Testing",
+    description:
+      "We rigorously test to ensure quality, performance, and security.",
+    icon: "heroicons:check-badge",
+  },
+  {
+    title: "Launch & Support",
+    description:
+      "We deploy your solution and provide ongoing support and optimization.",
+    icon: "heroicons:rocket-launch",
+  },
+];
+---
+
+<section class="process-flow">
+  <h2 class="section-title">Our Proven Process</h2>
+  <div class="bento-grid">
+    {
+      steps.map((step, index) => {
+        // This logic creates the bento layout
+        // Steps 1, 4, and 5 will be wider
+        const spanClass = [0, 3, 4].includes(index) ? "span-2" : "";
+        const stepNumber = `0${index + 1}`;
+
+        return (
+          <div
+            class:list={["step-card", "glass-card", spanClass]}
+            style={`animation-delay: ${index * 100}ms;`}
+          >
+            <div class="card-header">
+              <span class="step-number">{stepNumber}</span>
+              <div class="card-icon">
+                <Icon name={step.icon} />
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
+
+<style lang="scss">
+  // --- Define Colors & Variables (for consistency) ---
+  :root {
+    --brand-purple: #5e17ed;
+    --brand-red: #f06056;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+    --border-radius: 1.5rem; // 24px
+    --border-radius-sm: 1rem; // 16px
+  }
+
+  // --- Reusable Glass Effect (same as services.astro) ---
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow);
+  }
+
+  // --- Main Component Styles ---
+  .process-flow {
+    position: relative;
+    z-index: 10;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+  }
+
+  // --- The Bento Grid ---
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .step-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+
+    // Animation: Staggered fade-in
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+
+    // Bento grid span
+    &.span-2 {
+      grid-column: span 2;
+    }
+
+    // Gradient border on hover (same as services.astro)
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--border-radius);
+      padding: 2px; // Border thickness
+      background: linear-gradient(
+        135deg,
+        var(--brand-purple),
+        var(--brand-red)
+      );
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+    line-height: 1;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--border-radius-sm);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--brand-red); // Icon color
+    flex-shrink: 0; // Prevents icon from shrinking
+
+    // Styles the <Icon> component (astro-icon)
+    :global(svg) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .card-content {
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  }
+
+  // --- Fade In Animation ---
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // --- Responsive Design ---
+  @media (max-width: 900px) {
+    .bento-grid {
+      // Switch to 2 columns on tablets
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .step-card.span-2 {
+      // Span-2 items now take the full width
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .bento-grid {
+      // Stack to 1 column on mobile
+      grid-template-columns: 1fr;
+    }
+    .step-card.span-2 {
+      // Reset span to 1
+      grid-column: span 1;
+    }
+    .step-card {
+      padding: 1.5rem;
+    }
+    .step-number {
+      font-size: 2.5rem;
+    }
+    .card-content h3 {
+      font-size: 1.2rem;
+    }
+  }
+</style>

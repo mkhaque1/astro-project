@@ -1,383 +1,402 @@
 ---
 // src/pages/services.astro
-import ProcessFlow from "../components/ProcessFlow.svelte";
 import Layout from "../layouts/Layout.astro";
+import ProcessFlow from "../components/ProcessFlow.astro";
+// For icons, a modern touch. Install with: npm install astro-icon
+// Using Heroicons (outline) here. You can find more at https://heroicons.com/
+import { Icon } from "astro-icon/components";
+
+const services = [
+  {
+    title: "Web Development",
+    description:
+      "Custom web solutions tailored to your business needs with modern technologies and responsive design.",
+    icon: "heroicons:code-bracket-solid",
+  },
+  {
+    title: "Mobile App Development",
+    description:
+      "Native and cross-platform mobile applications for iOS and Android platforms.",
+    icon: "heroicons:device-phone-mobile-solid",
+  },
+  {
+    title: "UI/UX Design",
+    description:
+      "Beautiful and intuitive user interfaces that enhance user experience and engagement.",
+    icon: "heroicons:paint-brush-solid",
+  },
+  {
+    title: "Digital Marketing",
+    description:
+      "Comprehensive digital marketing strategies to grow your online presence.",
+    icon: "heroicons:chart-bar-solid",
+  },
+  {
+    title: "SEO Optimization",
+    description:
+      "Improve your search engine rankings and drive organic traffic to your website.",
+    icon: "heroicons:magnifying-glass-solid",
+  },
+  {
+    title: "Content Creation",
+    description:
+      "High-quality content that resonates with your audience and boosts conversions.",
+    icon: "heroicons:pencil-solid",
+  },
+  {
+    title: "Branding",
+    description:
+      "Create a strong brand identity that stands out in the competitive market.",
+    icon: "heroicons:sparkles-solid",
+  },
+  {
+    title: "Consulting",
+    description:
+      "Expert advice to help you make informed decisions about your digital strategy.",
+    icon: "heroicons:chat-bubble-left-right-solid",
+  },
+  {
+    title: "Support & Maintenance",
+    description:
+      "Ongoing support and maintenance to keep your digital products running smoothly.",
+    icon: "heroicons:cog-solid",
+  },
+  {
+    title: "eCommerce Solutions",
+    description:
+      "Powerful online stores with seamless checkout and payment integrations.",
+    icon: "heroicons:shopping-cart-solid",
+  },
+  {
+    title: "SaaS Development",
+    description:
+      "Scalable software-as-a-service solutions for your business needs.",
+    icon: "heroicons:server-solid",
+  },
+  {
+    title: "Cloud Architecture",
+    description:
+      "Design and deploy robust, scalable cloud infrastructure on AWS, Azure, or GCP.",
+    icon: "heroicons:cloud-solid",
+  },
+];
 ---
 
-<Layout title="Our Services">
-  <main class="services">
-    <section class="services__intro glass-card">
-      <h1>Pyonet Services</h1>
-      <p>
-        Empowering your business with cutting-edge digital solutions, design,
-        and innovation.
-      </p>
+<Layout title="Pyonet Services | Modern Digital Solutions">
+  <main class="services-page">
+    <div class="blur-bg blur-1"></div>
+    <div class="blur-bg blur-2"></div>
+    <div class="blur-bg blur-3"></div>
+
+    <section class="services-hero">
+      <div class="hero-content glass-card">
+        <h1 class="hero-title">Our Services</h1>
+        <p class="hero-subtitle">
+          From concept to code, we build cutting-edge digital experiences that
+          elevate your brand and drive results.
+        </p>
+        <a href="/contact" class="cta-button">Start Your Project</a>
+      </div>
     </section>
-    <div class="blur"></div>
 
-    <div class="box__image">
-      <img
-        src="/images/pngegg (100) 1 (1).png"
-        width="450"
-        alt="Service Illustration"
-      />
-    </div>
-    <div class="blur2"></div>
-
-    <section class="services__grid">
+    <section class="services-grid">
       {
-        [
-          {
-            title: "Web Development",
-            description:
-              "Custom web solutions tailored to your business needs with modern technologies and responsive design.",
-          },
-          {
-            title: "Mobile App Development",
-            description:
-              "Native and cross-platform mobile applications for iOS and Android platforms.",
-          },
-          {
-            title: "UI/UX Design",
-            description:
-              "Beautiful and intuitive user interfaces that enhance user experience and engagement.",
-          },
-          {
-            title: "Digital Marketing",
-            description:
-              "Comprehensive digital marketing strategies to grow your online presence.",
-          },
-          {
-            title: "SEO Optimization",
-            description:
-              "Improve your search engine rankings and drive organic traffic to your website.",
-          },
-          {
-            title: "Content Creation",
-            description:
-              "High-quality content that resonates with your audience and boosts conversions.",
-          },
-          {
-            title: "Branding",
-            description:
-              "Create a strong brand identity that stands out in the competitive market.",
-          },
-          {
-            title: "Consulting",
-            description:
-              "Expert advice to help you make informed decisions about your digital strategy.",
-          },
-          {
-            title: "Support & Maintenance",
-            description:
-              "Ongoing support and maintenance to keep your digital products running smoothly.",
-          },
-          {
-            title: "eCommerce Solutions",
-            description:
-              "Powerful online stores with seamless checkout and payment integrations.",
-          },
-          {
-            title: "SaaS Development",
-            description:
-              "Scalable software-as-a-service solutions for your business needs.",
-          },
-        ].map((service) => (
-          <div
-            class="service-item glass-card"
-            data-service={JSON.stringify(service)}
-          >
-            {service.title}
+        services.map((service) => (
+          <div class="service-card glass-card">
+            <div class="card-icon">
+              <Icon name={service.icon} />
+            </div>
+            <h3 class="card-title">{service.title}</h3>
+            <p class="card-description">{service.description}</p>
           </div>
         ))
       }
     </section>
 
-    {/* Popup Modal */}
-    <div class="modal-overlay" id="modalOverlay">
-      <div class="modal-content">
-        <button class="close-btn" id="closeBtn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        <h2 id="modalTitle"></h2>
-        <p id="modalDescription"></p>
-        <a href="/contact" class="cta-button">Get Started</a>
-      </div>
-    </div>
-    <section>
+    <section class="process-section">
       <ProcessFlow client:load />
+    </section>
+
+    <section class="final-cta">
+      <div class="cta-content glass-card">
+        <h2 class="cta-title">Have an idea?</h2>
+        <p class="cta-subtitle">
+          Let's turn it into reality. Get in touch with our experts today for a
+          free consultation.
+        </p>
+        <a href="/contact" class="cta-button">Get a Free Quote</a>
+      </div>
     </section>
   </main>
 </Layout>
 
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get modal elements
-    const modalOverlay = document.getElementById("modalOverlay");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDescription = document.getElementById("modalDescription");
-    const closeBtn = document.getElementById("closeBtn");
-
-    // Get all service items
-    const serviceItems = document.querySelectorAll(".service-item");
-
-    // Add click event to each service item
-    serviceItems.forEach((item) => {
-      item.addEventListener("click", function () {
-        const serviceData = JSON.parse(this.getAttribute("data-service"));
-        modalTitle.textContent = serviceData.title;
-        modalDescription.textContent = serviceData.description;
-        modalOverlay.style.display = "flex";
-        document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
-      });
-    });
-
-    // Close modal when clicking close button
-    closeBtn.addEventListener("click", function () {
-      modalOverlay.style.display = "none";
-      document.body.style.overflow = "auto";
-    });
-
-    // Close modal when clicking outside of modal content
-    modalOverlay.addEventListener("click", function (e) {
-      if (e.target === modalOverlay) {
-        modalOverlay.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    });
-
-    // Close modal with Escape key
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && modalOverlay.style.display === "flex") {
-        modalOverlay.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    });
-  });
-</script>
-
 <style lang="scss">
-  .services {
-    padding: 4rem 0rem;
-    color: #fff;
+  // --- Define Colors & Variables ---
+  :root {
+    --brand-purple: #5e17ed;
+    --brand-red: #f06056;
+    --brand-pink: #ea30d4;
+    --brand-blue: #1683f8;
+
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+    --border-radius: 1.5rem; // 24px
+    --border-radius-sm: 1rem; // 16px
+  }
+
+  // --- Reusable Glass Effect ---
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow);
+    z-index: 10;
+  }
+
+  // --- Reusable CTA Button ---
+  .cta-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--brand-purple), var(--brand-red));
+    color: var(--text-primary);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  // --- Base Page Layout ---
+  .services-page {
+    padding: 4rem 2rem;
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 5rem;
     position: relative;
+    overflow: hidden; // Contains blurs
+  }
 
-    .box__image {
-      position: absolute;
-      top: 10%;
+  // --- Decorative Blurs ---
+  .blur-bg {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    filter: blur(200px);
+    opacity: 0.7;
+    z-index: 1;
+
+    &.blur-1 {
+      top: 5%;
+      right: 5%;
+      background-color: var(--brand-pink);
+    }
+    &.blur-2 {
+      top: 30%;
       left: 0;
-      @media (max-width: 768px) {
-        top: 50%;
-        left: 0%;
-      }
-      img {
-        width: 100%;
-        max-width: 300px;
-      }
+      background-color: var(--brand-blue);
     }
-
-    .services__intro {
-      text-align: center;
-      padding: 2rem;
-      border-radius: 1.5rem;
-      z-index: 2;
-      h1 {
-        font-size: 2.8rem;
-        color: #fff;
-      }
-
-      p {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.2rem;
-        margin-top: 1rem;
-      }
-    }
-
-    .services__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      z-index: 2;
-
-      .service-item {
-        padding: 1.5rem;
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: center;
-        border-radius: 1rem;
-        transition: 0.3s ease;
-        cursor: pointer;
-        &:hover {
-          transform: scale(1.05);
-          border: 1px solid rgba(0, 255, 255, 0.2);
-          background: rgba(0, 255, 255, 0.07);
-        }
-      }
+    &.blur-3 {
+      bottom: 5%;
+      right: 20%;
+      background-color: var(--brand-purple);
     }
   }
 
-  // Modal Styles
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    display: none;
+  // --- Section Titles ---
+  .section-title {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    z-index: 10;
+  }
+
+  // --- 1. Hero Section ---
+  .services-hero {
+    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-  }
-
-  .modal-content {
     text-align: center;
-    position: relative;
-    max-width: 600px;
-    width: 90%;
-    padding: 2rem;
-    border-radius: 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border: 1px solid transparent;
-    animation: fadeIn 0.3s ease;
-    @media (max-width: 768px) {
-      text-align: center;
-      width: 80%;
+    padding: 3rem 0;
+
+    .hero-content {
+      padding: 3rem 2.5rem;
+      max-width: 800px;
     }
 
-    // Gradient border effect
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+  }
+
+  // --- 2. Services Grid ---
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    z-index: 10;
+  }
+
+  .service-card {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease;
+    position: relative; // For the gradient border
+
+    // -- The Modern Gradient Border on Hover --
     &::before {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 1.5rem;
-      padding: 2px;
-      background: linear-gradient(135deg, #5e17ed, #f06056);
+      border-radius: var(--border-radius);
+      padding: 2px; // Border thickness
+      background: linear-gradient(
+        135deg,
+        var(--brand-purple),
+        var(--brand-red)
+      );
       -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-
-    p {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: transparent;
-      border: none;
-      color: rgba(255, 255, 255, 0.8);
-      cursor: pointer;
-      padding: 0.5rem;
-      transition: 0.3s ease;
-
-      &:hover {
-        color: #fff;
-        transform: rotate(90deg);
-      }
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      background: linear-gradient(135deg, #5e17ed, #f06056);
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s ease;
-      border: none;
-      cursor: pointer;
-
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
       opacity: 0;
-      transform: translateY(20px);
+      transition: opacity 0.3s ease;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    &:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .card-icon {
+        transform: scale(1.1);
+      }
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--border-radius-sm);
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--brand-red); // Icon color
+      transition: transform 0.3s ease;
+
+      // Styles the <Icon> component (astro-icon)
+      :global(svg) {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .card-description {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
     }
   }
 
-  // Reusable glass effect
-  .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
-  .blur {
-    width: 244px;
-    height: 244px;
-    background-color: #ea30d4;
-    filter: blur(200px);
-    position: absolute;
-    right: 0;
-    z-index: 1;
-  }
-  .blur2 {
-    width: 244px;
-    height: 244px;
-    background-color: #1683f8;
-    filter: blur(200px);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
+  // --- 3. Process Section ---
+  .process-section {
+    // The ProcessFlow component likely has its own styles
+    // This section just provides a title and wrapper.
+    z-index: 10;
   }
 
+  // --- 4. Final CTA Section ---
+  .final-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 0;
+
+    .cta-content {
+      padding: 3rem 2.5rem;
+      max-width: 800px;
+    }
+
+    .cta-title {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 550px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+  }
+
+  // --- Responsive Design ---
   @media (max-width: 768px) {
-    .modal-content {
-      padding: 1.5rem;
+    .services-page {
+      padding: 3rem 1rem;
+      gap: 3rem;
+    }
 
-      h2 {
-        font-size: 1.5rem;
+    .services-hero,
+    .final-cta {
+      padding: 1rem 0;
+      .hero-content,
+      .cta-content {
+        padding: 2rem 1.5rem;
       }
+    }
 
-      p {
-        font-size: 1rem;
-      }
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      padding: 2rem 1.5rem;
     }
   }
 </style>
